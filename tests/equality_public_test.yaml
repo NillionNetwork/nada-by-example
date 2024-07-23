@@ -1,0 +1,10 @@
+---
+program: equality_public
+inputs:
+  secret_guess:
+    SecretInteger: "3"
+  secret_target:
+    SecretInteger: "3"
+expected_outputs:
+  is_same_num:
+    Boolean: true

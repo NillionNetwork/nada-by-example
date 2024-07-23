@@ -5,3 +5,98 @@ authors = [""]
 [[programs]]
 path = "src/main.py"
 prime_size = 128
+
+[[programs]]
+path = "src/hello_world.py"
+name = "hello_world"
+prime_size = 128
+
+[[programs]]
+path = "src/addition.py"
+name = "addition"
+prime_size = 128
+
+[[programs]]
+path = "src/subtraction.py"
+name = "subtraction"
+prime_size = 128
+
+[[programs]]
+path = "src/multiplication.py"
+name = "multiplication"
+prime_size = 128
+
+[[programs]]
+path = "src/power.py"
+name = "power"
+prime_size = 128
+
+[[programs]]
+path = "src/division.py"
+name = "division"
+prime_size = 128
+
+[[programs]]
+path = "src/modulo.py"
+name = "modulo"
+prime_size = 128
+
+[[programs]]
+path = "src/shift_left.py"
+name = "shift_left"
+prime_size = 128
+
+[[programs]]
+path = "src/shift_right.py"
+name = "shift_right"
+prime_size = 128
+
+[[programs]]
+path = "src/probabilistic_truncation.py"
+name = "probabilistic_truncation"
+prime_size = 128
+
+[[programs]]
+path = "src/comparison_lt.py"
+name = "comparison_lt"
+prime_size = 128
+
+[[programs]]
+path = "src/comparison_lte.py"
+name = "comparison_lte"
+prime_size = 128
+
+[[programs]]
+path = "src/comparison_gt.py"
+name = "comparison_gt"
+prime_size = 128
+
+[[programs]]
+path = "src/comparison_gte.py"
+name = "comparison_gte"
+prime_size = 128
+
+[[programs]]
+path = "src/if_else_public.py"
+name = "if_else_public"
+prime_size = 128
+
+[[programs]]
+path = "src/if_else_private.py"
+name = "if_else_private"
+prime_size = 128
+
+[[programs]]
+path = "src/reveal.py"
+name = "reveal"
+prime_size = 128
+
+[[programs]]
+path = "src/equality.py"
+name = "equality"
+prime_size = 128
+
+[[programs]]
+path = "src/equality_public.py"
+name = "equality_public"
+prime_size = 128

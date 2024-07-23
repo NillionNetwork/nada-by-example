@@ -1,0 +1,10 @@
+---
+program: shift_right
+inputs:
+  shift:
+    UnsignedInteger: '3'
+  base:
+    SecretInteger: '65'
+expected_outputs:
+  right_shift_result:
+    SecretInteger: '8'

@@ -1,0 +1,10 @@
+---
+program: comparison_lt
+inputs:
+  y:
+    SecretInteger: '20'
+  x:
+    SecretInteger: '10'
+expected_outputs:
+  x_less_than_y:
+    SecretBoolean: true

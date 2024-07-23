@@ -1,0 +1,10 @@
+---
+program: addition
+inputs:
+  num_1:
+    SecretInteger: '30'
+  num_2:
+    SecretInteger: '10'
+expected_outputs:
+  sum:
+    SecretInteger: '40'

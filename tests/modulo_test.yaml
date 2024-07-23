@@ -1,0 +1,10 @@
+---
+program: modulo
+inputs:
+  dividend:
+    SecretInteger: '10'
+  divisor:
+    SecretInteger: '3'
+expected_outputs:
+  remainder:
+    SecretInteger: '1'

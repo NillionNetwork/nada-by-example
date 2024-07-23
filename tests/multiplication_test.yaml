@@ -1,0 +1,10 @@
+---
+program: multiplication
+inputs:
+  num_1:
+    SecretInteger: '3'
+  num_2:
+    SecretInteger: '2'
+expected_outputs:
+  product:
+    SecretInteger: '6'

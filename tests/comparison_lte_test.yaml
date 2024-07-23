@@ -1,0 +1,10 @@
+---
+program: comparison_lte
+inputs:
+  y:
+    SecretInteger: '30'
+  x:
+    SecretInteger: '30'
+expected_outputs:
+  x_less_than_or_equal_y:
+    SecretBoolean: true

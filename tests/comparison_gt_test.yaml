@@ -1,0 +1,10 @@
+---
+program: comparison_gt
+inputs:
+  y:
+    SecretInteger: '5'
+  x:
+    SecretInteger: '3'
+expected_outputs:
+  x_greater_than_y:
+    SecretBoolean: false

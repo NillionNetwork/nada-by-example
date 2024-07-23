@@ -1,0 +1,10 @@
+---
+program: power
+inputs:
+  exponent:
+    Integer: '2'
+  base:
+    Integer: '4'
+expected_outputs:
+  power:
+    Integer: '16'
