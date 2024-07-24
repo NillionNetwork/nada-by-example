@@ -105,3 +105,33 @@ prime_size = 128
 path = "src/debug.py"
 name = "debug"
 prime_size = 128
+
+[[programs]]
+path = "src/for_loop.py"
+name = "for_loop"
+prime_size = 128
+
+[[programs]]
+path = "src/list_comprehensions.py"
+name = "list_comprehensions"
+prime_size = 128
+
+[[programs]]
+path = "src/list_comprehensions_with_helper.py"
+name = "list_comprehensions_with_helper"
+prime_size = 128
+
+[[programs]]
+path = "src/find_secret.py"
+name = "find_secret"
+prime_size = 128
+
+[[programs]]
+path = "src/find_secret_2p.py"
+name = "find_secret_2p"
+prime_size = 128
+
+[[programs]]
+path = "src/guess_value_in_matrix.py"
+name = "guess_value_in_matrix"
+prime_size = 128

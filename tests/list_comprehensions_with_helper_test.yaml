@@ -1,0 +1,16 @@
+---
+program: list_comprehensions_with_helper
+inputs:
+  secret3:
+    SecretInteger: '3'
+  secret1:
+    SecretInteger: '1'
+  secret2:
+    SecretInteger: '2'
+expected_outputs:
+  doubled_secret_1:
+    SecretInteger: '2'
+  doubled_secret_2:
+    SecretInteger: '4'
+  doubled_secret_3:
+    SecretInteger: '6'
