@@ -6,7 +6,7 @@ This is an introduction to Nillion's [Nada language](https://docs.nillion.com/na
 
 ### Installation
 
-1. Install Nillion
+#### 1. Install Nillion
 
 Install nilup
 
@@ -21,7 +21,7 @@ nilup install latest
 nilup use latest
 ```
 
-2. Create Python virtual environment and install Nada
+#### 2. Create Python virtual environment and install Nada
 
 ```
 python3 -m venv .venv
@@ -29,7 +29,7 @@ source .venv/bin/activate
 pip install -r requirements.txt
 ```
 
-3. Optionally enable nilup telemetry, providing your Ethereum wallet address.
+#### 3. Optionally enable nilup telemetry, providing your Ethereum wallet address.
 
 ```
 nilup instrumentation enable --wallet <your-eth-wallet-address>
