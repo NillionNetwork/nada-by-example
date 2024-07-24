@@ -100,3 +100,8 @@ prime_size = 128
 path = "src/equality_public.py"
 name = "equality_public"
 prime_size = 128
+
+[[programs]]
+path = "src/debug.py"
+name = "debug"
+prime_size = 128

@@ -1,0 +1,10 @@
+---
+program: debug
+inputs:
+  num_2:
+    SecretInteger: '3'
+  num_1:
+    SecretInteger: '3'
+expected_outputs:
+  sum:
+    SecretInteger: '6'
