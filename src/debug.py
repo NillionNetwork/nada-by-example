@@ -17,8 +17,7 @@ def nada_main():
     # print(sum) # SecretInteger(inner=<nada_dsl.operations.Addition object at 0x104ba5e20>)
     return [Output(sum, "sum", party_charlie)]
 
-# Include the print statements for debugging, then 
-# run this program from the root with `python3 src/debug.py`
-# to see printed values from the cli
+# Include a Python main block so you can run this program 
+# from the root directory with `python3 src/debug.py` to see printed values
 if __name__ == "__main__":
     nada_main()
