@@ -1,0 +1,10 @@
+---
+program: addition_literal_unsigned
+inputs:
+  num_1:
+    SecretUnsignedInteger: '3'
+  num_2:
+    SecretUnsignedInteger: '3'
+expected_outputs:
+  sum:
+    SecretUnsignedInteger: '13'

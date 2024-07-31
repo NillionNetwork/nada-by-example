@@ -1,0 +1,10 @@
+---
+program: addition_literal
+inputs:
+  num_1:
+    SecretInteger: '3'
+  num_2:
+    SecretInteger: '-3'
+expected_outputs:
+  sum:
+    SecretInteger: '7'

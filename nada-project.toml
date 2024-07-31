@@ -140,3 +140,23 @@ prime_size = 128
 path = "src/addition_unsigned.py"
 name = "addition_unsigned"
 prime_size = 128
+
+[[programs]]
+path = "src/addition_public.py"
+name = "addition_public"
+prime_size = 128
+
+[[programs]]
+path = "src/addition_public_unsigned.py"
+name = "addition_public_unsigned"
+prime_size = 128
+
+[[programs]]
+path = "src/addition_literal.py"
+name = "addition_literal"
+prime_size = 128
+
+[[programs]]
+path = "src/addition_literal_unsigned.py"
+name = "addition_literal_unsigned"
+prime_size = 128
