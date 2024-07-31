@@ -135,3 +135,8 @@ prime_size = 128
 path = "src/guess_value_in_matrix.py"
 name = "guess_value_in_matrix"
 prime_size = 128
+
+[[programs]]
+path = "src/addition_unsigned.py"
+name = "addition_unsigned"
+prime_size = 128

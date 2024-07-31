@@ -4,7 +4,7 @@ inputs:
   num_1:
     SecretInteger: '3'
   num_2:
-    SecretInteger: '2'
+    SecretInteger: '-2'
 expected_outputs:
   product:
-    SecretInteger: '6'
+    SecretInteger: '-6'
