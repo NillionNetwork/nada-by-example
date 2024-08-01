@@ -1,0 +1,10 @@
+---
+program: rock_paper_scissors
+inputs:
+  choice_player_1:
+    SecretInteger: '0' # player 1 plays "rock"
+  choice_player_2:
+    SecretInteger: '2' # player 2 plays "scissors"
+expected_outputs:
+  winning_player_number:
+    SecretInteger: '1' # player 1 wins; rock beats scissors

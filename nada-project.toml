@@ -170,3 +170,8 @@ prime_size = 128
 path = "src/voting.py"
 name = "voting"
 prime_size = 128
+
+[[programs]]
+path = "src/rock_paper_scissors.py"
+name = "rock_paper_scissors"
+prime_size = 128
