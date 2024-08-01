@@ -1,17 +1,17 @@
 from nada_dsl import *
 import nada_numpy as na
 
-# Candidate mapping: candidate name to their respective identifier
+# Candidate mapping: candidate name to their respective candidate identifier
 # Every voter reads the candidate map and casts their vote. 
 # If their vote is SecretInteger: 1, it means they cast a vote for kamala_harris
 # If their vote is SecretInteger: 2, it means they cast a vote for donald_trump
 # If their vote is SecretInteger: 3, it means they cast a vote for rfk_jr
 candidates_map = {"kamala_harris": 1, "donald_trump": 2, "rfk_jr": 3}
 
-def count_votes_for_candidate(array: List[SecretInteger], initialValue: SecretInteger, candidate_num: Integer) -> SecretInteger:
+def count_votes_for_candidate(votes: List[SecretInteger], initialValue: SecretInteger, candidate_id: Integer) -> SecretInteger:
     total_votes_for_candidate = initialValue
-    for element in array:
-        votes_to_add = (element == candidate_num).if_else(Integer(1), Integer(0))
+    for vote in votes:
+        votes_to_add = (vote == candidate_id).if_else(Integer(1), Integer(0))
         # print(type(votes_to_add)) # every voter's vote is kept secret: <class 'nada_dsl.nada_types.types.SecretInteger'>
         total_votes_for_candidate = total_votes_for_candidate + votes_to_add
     
@@ -33,8 +33,8 @@ def nada_main():
 
     # Get the total votes per candidate
     candidate_totals = {
-        name: count_votes_for_candidate(votes_list, vote_start_count, Integer(identifier))
-        for name, identifier in candidates_map.items()
+        name: count_votes_for_candidate(votes_list, vote_start_count, Integer(candidate_id))
+        for name, candidate_id in candidates_map.items()
     }
 
     vote_count_results = [
