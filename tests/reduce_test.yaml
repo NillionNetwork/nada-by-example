@@ -1,0 +1,26 @@
+---
+program: reduce
+inputs:
+  num_2:
+    SecretInteger: '1'
+  num_0:
+    SecretInteger: '2'
+  num_9:
+    SecretInteger: '3'
+  num_1:
+    SecretInteger: '4'
+  num_3:
+    SecretInteger: '5'
+  num_6:
+    SecretInteger: '6'
+  num_7:
+    SecretInteger: '7'
+  num_5:
+    SecretInteger: '8'
+  num_8:
+    SecretInteger: '9'
+  num_4:
+    SecretInteger: '10'
+expected_outputs:
+  total:
+    SecretInteger: '55'

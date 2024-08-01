@@ -160,3 +160,13 @@ prime_size = 128
 path = "src/addition_literal_unsigned.py"
 name = "addition_literal_unsigned"
 prime_size = 128
+
+[[programs]]
+path = "src/reduce.py"
+name = "reduce"
+prime_size = 128
+
+[[programs]]
+path = "src/voting.py"
+name = "voting"
+prime_size = 128
