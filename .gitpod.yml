@@ -1,0 +1,33 @@
+image:
+  file: .gitpod.Dockerfile
+
+tasks:
+  - name: Setup environment
+    init: |
+      sudo apt-get update && sudo apt-get install -y \
+      git \
+      curl \
+      echo "Python version:"
+      python3 --version
+      echo "Git version:"
+      git --version
+  - name: Open Readme
+    command: |
+      gp open README_GITPOD.md
+  - name: Create Nillion environment
+    init: |
+      echo "Nilup version:"
+      nilup -V
+    command: |
+      nilup install latest
+      nilup use latest
+      yes |  nilup instrumentation enable --wallet nada-by-example-gitpod
+      source /home/gitpod/.bashrc && export PATH=$PATH:/home/gitpod/.nilup/sdks/latest
+      nillion -V
+      pip install -r requirements.txt
+      nada build
+      echo "✅ Compiled all programs to binary (.nada.bin) in target/ directory"
+      echo "🖥️ Check out Nada programs in src/ directory"
+      echo "🧪 Check out Nada program test files in tests/ directory"
+      echo "👇 Run the addition program with the addition_test file with the 'nada run' command"
+      echo "nada run addition_test"

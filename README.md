@@ -4,7 +4,17 @@ This is an introduction to Nillion's [Nada language](https://docs.nillion.com/na
 
 ## Run Examples
 
-### Installation
+### 1-Click Setup with Gitpod
+
+[![Open in Gitpod](https://gitpod.io/button/open-in-gitpod.svg)](https://gitpod.io/#https://github.com/NillionNetwork/nada-by-example)
+
+Open nada-by-example in Gitpod, then run any example
+
+```
+nada run [test-name]
+```
+
+### Local Installation Instructions
 
 #### 1. Install Nillion
 
