@@ -17,6 +17,7 @@ RUN apt-get update && apt-get install -y \
     libncursesw5-dev \
     xz-utils \
     tk-dev \
+    uuid-runtime \
     libffi-dev \
     liblzma-dev \
     python3-openssl
