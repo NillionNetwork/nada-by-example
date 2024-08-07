@@ -175,3 +175,8 @@ prime_size = 128
 path = "src/rock_paper_scissors.py"
 name = "rock_paper_scissors"
 prime_size = 128
+
+[[programs]]
+path = "src/random_number.py"
+name = "random_number"
+prime_size = 128

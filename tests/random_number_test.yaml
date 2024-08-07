@@ -1,0 +1,12 @@
+---
+program: random_number
+inputs:
+  num_2:
+    SecretInteger: "3"
+  num_1:
+    SecretInteger: "3"
+expected_outputs:
+  check_min:
+    SecretBoolean: true
+  check_max:
+    SecretBoolean: true
