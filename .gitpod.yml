@@ -13,6 +13,8 @@ tasks:
       git --version
   - name: Open Readme
     command: |
+      gp open src/addition.py
+      gp open tests/addition_test.yaml
       gp open README_GITPOD.md
   - name: Create Nillion environment
     init: |
@@ -21,7 +23,7 @@ tasks:
     command: |
       nilup install latest
       nilup use latest
-      yes |  nilup instrumentation enable --wallet nada-by-example-gitpod
+      sh telemetry.sh
       source /home/gitpod/.bashrc && export PATH=$PATH:/home/gitpod/.nilup/sdks/latest
       nillion -V
       pip install -r requirements.txt

@@ -6,7 +6,7 @@ This is an introduction to Nillion's [Nada language](https://docs.nillion.com/na
 
 ### 1-Click Setup with Gitpod
 
-[![Open in Gitpod](https://gitpod.io/button/open-in-gitpod.svg)](https://gitpod.io/#https://github.com/oceans404/nada-by-example)
+[![Open in Gitpod](https://gitpod.io/button/open-in-gitpod.svg)](https://gitpod.io/#https://github.com/nillionnetwork/nada-by-example)
 
 Open nada-by-example in Gitpod, then run any example
 
