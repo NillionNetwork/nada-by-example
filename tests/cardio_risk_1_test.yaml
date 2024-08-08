@@ -1,0 +1,26 @@
+---
+program: cardio_risk
+inputs:
+  sex:
+    SecretBoolean: false
+  age:
+    SecretUnsignedInteger: "55"
+  is_smoking:
+    SecretUnsignedInteger: "1"
+  is_diabetic:
+    SecretUnsignedInteger: "0"
+  high_blood_pressure:
+    SecretUnsignedInteger: "1"
+  hdl_cholesterol:
+    SecretUnsignedInteger: "35"
+  height:
+    SecretUnsignedInteger: "180"
+  weight:
+    SecretUnsignedInteger: "175"
+  physical_act:
+    SecretUnsignedInteger: "20"
+  drinking:
+    SecretUnsignedInteger: "4"
+expected_outputs:
+  my_output:
+    SecretUnsignedInteger: "7"
