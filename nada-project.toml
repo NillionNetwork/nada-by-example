@@ -185,3 +185,8 @@ prime_size = 128
 path = "src/list_scan_linear.py"
 name = "list_scan_linear"
 prime_size = 128
+
+[[programs]]
+path = "src/cardio_risk.py"
+name = "cardio_risk"
+prime_size = 128
