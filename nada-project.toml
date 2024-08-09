@@ -180,3 +180,8 @@ prime_size = 128
 path = "src/random_number.py"
 name = "random_number"
 prime_size = 128
+
+[[programs]]
+path = "src/list_scan_linear.py"
+name = "list_scan_linear"
+prime_size = 128

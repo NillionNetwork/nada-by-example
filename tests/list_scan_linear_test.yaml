@@ -1,0 +1,28 @@
+---
+program: list_scan_linear
+inputs:
+  num_0:
+    SecretInteger: "10"
+  num_2:
+    SecretInteger: "20"
+  num_1:
+    SecretInteger: "30"
+  num_4:
+    SecretInteger: "40"
+  num_9:
+    SecretInteger: "50"
+  num_6:
+    SecretInteger: "60"
+  num_7:
+    SecretInteger: "70"
+  num_8:
+    SecretInteger: "80"
+  num_5:
+    SecretInteger: "90"
+  num_3:
+    SecretInteger: "100"
+expected_outputs:
+  is_present_1:
+    SecretBoolean: true
+  is_present_2:
+    SecretBoolean: false
