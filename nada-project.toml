@@ -185,3 +185,18 @@ prime_size = 128
 path = "src/list_scan_linear.py"
 name = "list_scan_linear"
 prime_size = 128
+
+[[programs]]
+path = "src/secret_conditional.py"
+name = "secret_conditional"
+prime_size = 128
+
+[[programs]]
+path = "src/public_conditional.py"
+name = "public_conditional"
+prime_size = 128
+
+[[programs]]
+path = "src/literal_boolean.py"
+name = "literal_boolean"
+prime_size = 128

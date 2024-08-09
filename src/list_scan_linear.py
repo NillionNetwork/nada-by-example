@@ -18,10 +18,10 @@ def nada_main():
             SecretInteger(Input(name="num_" + str(i), party=parties[i]))
         )
 
-    # Check if 100 is present in one of the parties.
+    # Check if 100 is a secret value in the list
     is_present_1 = is_number_present_in_list(secrets_list, Integer(100))
 
-    # Check if 99 is present in one of the parties.
+    # Check if 99 is a secret value in the list
     is_present_2 = is_number_present_in_list(secrets_list, Integer(99))
 
     return [
