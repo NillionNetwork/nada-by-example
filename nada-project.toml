@@ -200,3 +200,8 @@ prime_size = 128
 path = "src/literal_boolean.py"
 name = "literal_boolean"
 prime_size = 128
+
+[[programs]]
+path = "src/cardio_risk.py"
+name = "cardio_risk"
+prime_size = 128
