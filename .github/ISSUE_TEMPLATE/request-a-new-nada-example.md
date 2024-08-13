@@ -16,6 +16,10 @@ assignees: ''
 *Describe the use case for this example. Why is it important? How will it benefit other users?*
 
 ### Specific Requirements
+- Inputs: 
+- Outputs:
+- Edge cases:
+
 *List any specific requirements or features that the example should include. If applicable, provide details on the desired inputs and expected outputs.*
 
 ### Additional Context
