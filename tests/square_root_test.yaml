@@ -1,0 +1,8 @@
+---
+program: square_root
+inputs:
+  num:
+    SecretInteger: "81"
+expected_outputs:
+  my_output:
+    SecretInteger: "9"

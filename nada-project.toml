@@ -205,3 +205,8 @@ prime_size = 128
 path = "src/cardio_risk.py"
 name = "cardio_risk"
 prime_size = 128
+
+[[programs]]
+path = "src/square_root.py"
+name = "square_root"
+prime_size = 128
