@@ -3,7 +3,7 @@ name: Request a new Nada example
 about: Suggest an idea for a new Nada example
 title: ''
 labels: documentation, enhancement
-assignees: oceans404
+assignees: ''
 
 ---
 
