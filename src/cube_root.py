@@ -13,11 +13,12 @@ def nada_main():
     guess = num
 
     for _ in range(n_iterations):
-        div1 = guess / Integer(3)
+        div1 = guess
         div2 = num / guess
         div2 = div2 / guess
-        div2 = div2 / Integer(3)
+        # div2 = div2 / Integer(3)
         guess = Integer(2) * div1 +  div2
+        guess = guess / Integer(3)
     return [Output(guess, "my_output", party1)]
 
 if __name__ == "__main__":
