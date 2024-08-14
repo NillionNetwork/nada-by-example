@@ -16,7 +16,6 @@ def nada_main():
         div1 = guess
         div2 = num / guess
         div2 = div2 / guess
-        # div2 = div2 / Integer(3)
         guess = Integer(2) * div1 +  div2
         guess = guess / Integer(3)
     return [Output(guess, "my_output", party1)]
