@@ -5,4 +5,4 @@ inputs:
     SecretInteger: "127324"
 expected_outputs:
   my_output:
-    SecretInteger: "1"
+    SecretInteger: "50"
