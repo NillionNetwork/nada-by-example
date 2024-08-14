@@ -1,4 +1,4 @@
-"""Implementation of the square root function using the Newton method
+"""Implementation of the cube root function using the Newton method
 with n iterations - set to 41 by default."""
 
 from nada_dsl import *
