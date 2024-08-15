@@ -23,10 +23,6 @@ inputs:
     SecretInteger: '10'
   indx:
     SecretInteger: '0'
-  current_indx:
-    SecretInteger: '0'
-  public_one:
-    Integer: '1'        
 expected_outputs:
   argmax:
     SecretInteger: '5'

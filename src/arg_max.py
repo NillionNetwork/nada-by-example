@@ -13,10 +13,10 @@ one_party = Party(name="one_party")
 result = SecretInteger(Input(name="indx", party=index_party))
 
 # The current index of the loop. It is set to be a public value
-current_indx = PublicInteger(Input(name="current_indx", party=index_party))
+current_indx = Integer(0)
 
 # A public value of 1
-one = PublicInteger(Input(name="public_one", party=one_party))
+one = Integer(1)
 
 def argmax(array: na.NadaArray):
     global result, current_indx, one
