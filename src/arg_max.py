@@ -3,7 +3,7 @@ import nada_numpy as na
 
 DIM = 10
 
-def argmax(array: na.NadaArray, index_party: Party):
+def argmax(array: na.NadaArray):
     # The result (the index of the argmax)
     result = Integer(-1)
 
@@ -33,7 +33,7 @@ def nada_main():
 
     array = na.array([DIM], party1, "array", SecretInteger)
 
-    result = argmax(array, index_party)
+    result = argmax(array)
 
     return na.output(result, index_party, "argmax")
 
