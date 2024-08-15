@@ -5,7 +5,7 @@ DIM = 10
 
 def argmax(array: na.NadaArray, index_party: Party):
     # The result (the index of the argmax)
-    result = SecretInteger(Input(name="index", party=index_party))
+    result = Integer(-1)
 
     # The current index of the loop. It is set to be a public value
     current_index = Integer(0)
@@ -16,7 +16,7 @@ def argmax(array: na.NadaArray, index_party: Party):
     # Compare the remaining content of the array with max_val
     for v in array:
         # Is the current value, v, greater than max_val?
-        cond = v > max_val
+        cond = v >= max_val
         # If true, then max_val is set to be v. Otherwise, it is not changed.
         max_val = cond.if_else(v, max_val)
         # If true, then result index is updated to the current index. Otherwise, it is not changed.
