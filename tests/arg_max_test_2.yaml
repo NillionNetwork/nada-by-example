@@ -21,7 +21,7 @@ inputs:
     SecretInteger: '9'
   array_9:
     SecretInteger: '10'
-  indx:
+  index:
     SecretInteger: '0'
 expected_outputs:
   argmax:
