@@ -210,3 +210,8 @@ prime_size = 128
 path = "src/square_root.py"
 name = "square_root"
 prime_size = 128
+
+[[programs]]
+path = "src/cube_root.py"
+name = "cube_root"
+prime_size = 128
