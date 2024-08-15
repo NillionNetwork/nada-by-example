@@ -1,0 +1,32 @@
+---
+program: arg_max
+inputs:
+  array_0:
+    SecretInteger: '1'
+  array_1:
+    SecretInteger: '2'
+  array_2: 
+    SecretInteger: '3'
+  array_3:
+    SecretInteger: '4'
+  array_4:
+    SecretInteger: '5'
+  array_5: 
+    SecretInteger: '69'
+  array_6:
+    SecretInteger: '7'
+  array_7:
+    SecretInteger: '8'
+  array_8: 
+    SecretInteger: '9'
+  array_9:
+    SecretInteger: '10'
+  indx:
+    SecretInteger: '0'
+  current_indx:
+    SecretInteger: '0'
+  public_one:
+    Integer: '1'        
+expected_outputs:
+  argmax:
+    SecretInteger: '5'

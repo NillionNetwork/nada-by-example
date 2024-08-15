@@ -210,3 +210,8 @@ prime_size = 128
 path = "src/square_root.py"
 name = "square_root"
 prime_size = 128
+
+[[programs]]
+path = "src/arg_max.py"
+name = "arg_max"
+prime_size = 128
