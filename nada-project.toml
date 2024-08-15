@@ -212,6 +212,12 @@ name = "square_root"
 prime_size = 128
 
 [[programs]]
+path = "src/cube_root.py"
+name = "cube_root"
+prime_size = 128
+
+[[programs]]
 path = "src/arg_max.py"
 name = "arg_max"
 prime_size = 128
+
