@@ -3,6 +3,8 @@ import os
 import sys
 import streamlit as st
 import ast
+import asyncio
+from nillion_client_script import store_inputs_and_run_blind_computation
 
 def parse_nada_test_file(file_path):
     # Open and read the YAML file
@@ -17,9 +19,8 @@ def parse_nada_test_file(file_path):
     input_values = {}
 
     for key, value in inputs.items():
-        # Extract the type (e.g., 'Integer') and value (e.g., '1')
         for value_type, actual_value in value.items():
-            input_values[key] = int(actual_value)  # Convert to integer
+            input_values[key] = int(actual_value)
 
     return program_name, input_values
 
@@ -36,7 +37,7 @@ def get_program_code(program_name):
     else:
         return f"Error: Program file '{program_name}.py' not found in 'src' directory."
 
-def parse_program_code(program_code):
+def parse_program_code_for_inputs(program_code):
     # Parse the Python code to find out who gives each input
     tree = ast.parse(program_code)
     input_parties = {}
@@ -56,7 +57,7 @@ def parse_program_code(program_code):
         def visit_Assign(self, node):
             # Link input names to parties, e.g., should_double = SecretBoolean(Input(name="should_double", party=party_alice))
             if isinstance(node.value, ast.Call) and isinstance(node.value.func, ast.Name):
-                if node.value.func.id in ['SecretInteger', 'PublicInteger', 'SecretBoolean']:  # Check for SecretInteger, PublicInteger, and SecretBoolean
+                if node.value.func.id in ['SecretInteger', 'PublicInteger', 'SecretBoolean', 'PublicBoolean', 'SecretUnsignedInteger', 'PublicUnsignedInteger']:  # Check for SecretInteger, PublicInteger, and SecretBoolean
                     input_name = node.targets[0].id
                     for keyword in node.value.args[0].keywords:
                         if keyword.arg == "party" and isinstance(keyword.value, ast.Name):
@@ -70,6 +71,32 @@ def parse_program_code(program_code):
     InputPartyVisitor().visit(tree)
 
     return input_parties
+
+def parse_program_code_for_output_parties(program_code):
+    tree = ast.parse(program_code)
+    output_parties = []
+
+    class OutputPartyVisitor(ast.NodeVisitor):
+        def visit_Call(self, node):
+            # Check if the call is to the 'Output' class
+            if isinstance(node.func, ast.Name) and node.func.id == 'Output':
+                # The last argument of Output is typically the party
+                party_arg = node.args[-1]
+                if isinstance(party_arg, ast.Name):
+                    # Look for the assignment where the Party instance was created
+                    for n in ast.walk(tree):
+                        if isinstance(n, ast.Assign) and isinstance(n.targets[0], ast.Name) and n.targets[0].id == party_arg.id:
+                            party_instance = n.value
+                            if isinstance(party_instance, ast.Call) and isinstance(party_instance.func, ast.Name) and party_instance.func.id == 'Party':
+                                # Extract the party name
+                                for keyword in party_instance.keywords:
+                                    if keyword.arg == "name" and isinstance(keyword.value, ast.Constant):
+                                        party_name = keyword.value.value
+                                        output_parties.append(party_name)
+            self.generic_visit(node)
+
+    OutputPartyVisitor().visit(tree)
+    return output_parties
 
 def main():
     # Look for the test name to use in the demo
@@ -87,14 +114,16 @@ def main():
     program_name, input_values = parse_nada_test_file(yaml_file_path)
 
     # Display the program name and test name
-    st.header(f"Program: {program_name}")
-    st.write(f"Test: {nada_test_file_name}")
+    st.header(f"Nada Program Demo: {program_name}")
+
+    st.caption(f"This is a demo of the `{program_name}.py` Nada program running on the [Nillion Testnet](https://docs.nillion.com/network-configuration#testnet). Initial input values to the program come from the `{nada_test_file_name}.yaml` test file. Check out more examples within Nada by Example [Docs](https://docs.nillion.com/nada-by-example) and [Github Repo](https://github.com/NillionNetwork/nada-by-example)")
 
     # Get and parse the program code to find out who provides each input
     program_code = get_program_code(program_name)
-    input_parties = parse_program_code(program_code)
+    input_parties = parse_program_code_for_inputs(program_code)
 
     # Display the program code
+    st.subheader(f"{program_name}.py")
     st.code(program_code, language='python')
 
     # Group inputs by party
@@ -120,12 +149,48 @@ def main():
                     label=f"{input_type}: {input_name}",
                     value=value
                 )
+    
+    output_parties = parse_program_code_for_output_parties(program_code)
 
-    # Button to print the updated input values to the CLI with additional details
-    if st.button('Print Updated Inputs to CLI'):
-        for input_name, value in updated_input_values.items():
-            party_name, input_type = input_parties.get(input_name, ('Unknown', 'Unknown'))
-            print(f"Input: {input_name}, Value: {value}, Party: {party_name}, Type: {input_type}")
-          
+    # Button to store inputs with a loading screen
+    if st.button('Run blind computation'):
+        with st.spinner(f"Storing the Nada program, storing inputs, and running blind computation on the Nillion Network Testnet..."):
+            # Prepare the input data to pass to the second file
+            input_data = {}
+            for input_name, value in updated_input_values.items():
+                party_name, input_type = input_parties.get(input_name, ('Unknown', 'Unknown'))
+                input_data[input_name] = (value, party_name, input_type)
+            
+            # Add your Nilchain private key to the .streamlit/secrets.toml file
+            nilchain_private_key=st.secrets["nilchain_private_key"]
+
+            # Call the async store_inputs_and_run_blind_computation function and wait for it to complete
+            result_message = asyncio.run(store_inputs_and_run_blind_computation(input_data, program_name, output_parties, nilchain_private_key))
+
+        st.divider()
+
+        st.subheader("Nada Program Result")
+        st.success(f"Blind computation on the {program_name} program is complete!", icon="🙈")
+        st.text('Output(s)')
+        st.caption(f"A Nada program returns one or more outputs to designated output parties - {output_parties}")
+        st.code(result_message['output'], language='json')
+        
+        st.text('Store IDs')
+        st.caption('The Store IDs are the unique identifiers used to reference input values you stored in the Nillion Network on the PetNet.')
+        st.code(result_message['store_ids'], language='json')
+
+        st.text('PetNet User ID')
+        st.caption(f"The User ID is derived from your PetNet user public/private key pair and serves as your public user identifier on the Nillion Network. The user key is randomized every time you run this demo, so the User ID is also randomized.")
+        st.code(result_message['user_id'], language='json')
+
+        st.text('Program ID')
+        st.caption('The Program ID is the identifier for the program you stored in the Nillion Network on the PetNet. The Program ID naming convention is your [user_id]/[program_name]')
+        st.code(result_message['program_id'], language='json')
+        
+        st.text('Nilchain Nillion Address')
+        st.caption(f"Blind computation ran on the Nillion PetNet and operations were paid for on the Nilchain Testnet. Check out the Nilchain transactions that paid for each PetNet operation (store program, store secrets, compute) on the [Nillion Testnet Explorer](https://testnet.nillion.explorers.guru/account/{result_message['nillion_address']})")
+        st.code(result_message['nillion_address'], language='json')
+        st.balloons()
+      
 if __name__ == "__main__":
     main()

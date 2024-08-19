@@ -14,6 +14,16 @@ Open nada-by-example in Gitpod, then run any example
 nada run [test-name]
 ```
 
+#### After 1-click setup, run an example in the streamlit demo app
+
+1. Add your Nilchain private key in the .streamlit/secrets.toml file
+
+2. Run a demo
+
+```
+streamlit run demo.py [test-name]
+```
+
 ### Local Installation Instructions
 
 #### 1. Install Nillion
