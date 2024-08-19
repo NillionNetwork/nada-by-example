@@ -221,3 +221,7 @@ path = "src/arg_max.py"
 name = "arg_max"
 prime_size = 128
 
+[[programs]]
+path = "src/variance_integer.py"
+name = "variance_integer"
+prime_size = 128
