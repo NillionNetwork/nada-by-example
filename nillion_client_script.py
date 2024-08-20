@@ -76,19 +76,20 @@ async def store_inputs_and_run_blind_computation(input_data, program_name, outpu
         value, party_name, input_type = details
         print(f"Processing Input: {input_name}, Value: {value}, Party: {party_name}, Type: {input_type}")
         
-        
-        if input_type == 'SecretInteger':
-            nada_val = nillion.SecretInteger(value)
-        elif input_type == 'SecretBoolean':
-            nada_val = nillion.SecretBoolean(value)
-        elif input_type == 'PublicBoolean':
-            nada_val = nillion.Boolean(value)
-        elif input_type == 'SecretUnsignedInteger':
-            nada_val = nillion.SecretUnsignedInteger(value)
-        elif input_type == 'PublicUnsignedInteger':
-            nada_val = nillion.UnsignedInteger(value)
-        else:
-            nada_val = nillion.Integer(value)
+        # Nada types to Nillion types
+        types_mapping = {
+            # Integers
+            'SecretInteger': nillion.SecretInteger,
+            'PublicInteger': nillion.Integer,
+            # Unsigned Integers
+            'SecretUnsignedInteger': nillion.SecretUnsignedInteger,
+            'PublicUnsignedInteger': nillion.UnsignedInteger,
+            # Booleans
+            'SecretBoolean': nillion.SecretBoolean,
+            'PublicBoolean': nillion.Boolean,
+        }
+
+        nada_val = types_mapping.get(input_type, nillion.Integer)(value)
 
         new_secret = nillion.NadaValues(
             {
@@ -159,3 +160,4 @@ async def store_inputs_and_run_blind_computation(input_data, program_name, outpu
                 'output': blind_computation_results,
                 'nillion_address': payments_wallet,      
             }
+        

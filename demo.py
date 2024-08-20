@@ -110,6 +110,11 @@ def main():
     # Construct the YAML file path based on the provided file name
     yaml_file_path = os.path.join("tests", f"{nada_test_file_name}.yaml")
 
+    # Check if the YAML file exists
+    if not os.path.exists(yaml_file_path):
+        st.error(f"YAML file not found: {yaml_file_path}")
+        sys.exit(1)
+
     # Parse the YAML file
     program_name, input_values = parse_nada_test_file(yaml_file_path)
 
