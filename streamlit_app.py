@@ -174,10 +174,16 @@ def main(nada_test_file_name=None, compiled_nada_program_path=None):
         st.divider()
 
         st.subheader("Nada Program Result")
+
         st.success(f"Blind computation on the {program_name} program is complete!", icon="🙈")
+
         st.text('Output(s)')
         st.caption(f"A Nada program returns one or more outputs to designated output parties - {output_parties}")
         st.code(result_message['output'], language='json')
+
+        st.text('Nilchain Nillion Address')
+        st.caption(f"Blind computation ran on the Nillion PetNet and operations were paid for on the Nilchain Testnet. Check out the Nilchain transactions that paid for each PetNet operation (store program, store secrets, compute) on the [Nillion Testnet Explorer](https://testnet.nillion.explorers.guru/account/{result_message['nillion_address']})")
+        st.code(result_message['nillion_address'], language='json')
         
         st.text('Store IDs')
         st.caption('The Store IDs are the unique identifiers used to reference input values you stored in the Nillion Network on the PetNet.')
@@ -191,9 +197,6 @@ def main(nada_test_file_name=None, compiled_nada_program_path=None):
         st.caption('The Program ID is the identifier for the program you stored in the Nillion Network on the PetNet. The Program ID naming convention is your [user_id]/[program_name]')
         st.code(result_message['program_id'], language='json')
         
-        st.text('Nilchain Nillion Address')
-        st.caption(f"Blind computation ran on the Nillion PetNet and operations were paid for on the Nilchain Testnet. Check out the Nilchain transactions that paid for each PetNet operation (store program, store secrets, compute) on the [Nillion Testnet Explorer](https://testnet.nillion.explorers.guru/account/{result_message['nillion_address']})")
-        st.code(result_message['nillion_address'], language='json')
         st.balloons()
       
 if __name__ == "__main__":
