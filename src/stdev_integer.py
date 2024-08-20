@@ -2,7 +2,6 @@ from nada_dsl import *
 import nada_numpy as na
 
 DIM = 10  # Array dimension
-n_iterations = 12  # Number of iterations for computing the square root
 
 
 def mean(array: na.NadaArray):
@@ -34,7 +33,7 @@ def variance(array: na.NadaArray):
 
 
 # Computing the square root - https://github.com/NillionNetwork/nada-by-example/blob/main/src/square_root.py
-def sqrt(num: SecretInteger):
+def sqrt(num: SecretInteger, n_iterations=12):
     guess = num
 
     for _ in range(n_iterations):
