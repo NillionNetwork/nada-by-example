@@ -1,2 +1,11 @@
 nada-dsl==0.5.0
 nada-numpy==0.4.0
+
+# streamlit demo dependencies
+pyyaml
+streamlit
+
+# nillion_client_script dependencies for streamlit demo
+py-nillion-client
+nillion-python-helpers==0.2.6
+cosmpy>=0.9.2

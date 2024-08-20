@@ -7,6 +7,7 @@ tasks:
       sudo apt-get update && sudo apt-get install -y \
       git \
       curl \
+      cp .streamlit/secrets.toml.example .streamlit/secrets.toml
       echo "Python version:"
       python3 --version
       echo "Git version:"
@@ -15,6 +16,7 @@ tasks:
     command: |
       gp open src/addition.py
       gp open tests/addition_test.yaml
+      gp open .streamlit/secrets.toml
       gp open README_GITPOD.md
   - name: Create Nillion environment
     init: |
