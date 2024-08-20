@@ -1,0 +1,26 @@
+---
+program: stdev_integer
+inputs:
+  array_0:
+    SecretInteger: '10'
+  array_1:
+    SecretInteger: '0'
+  array_2:
+    SecretInteger: '-1'
+  array_3:
+    SecretInteger: '40'
+  array_4:
+    SecretInteger: '99'
+  array_5:
+    SecretInteger: '33'
+  array_6:
+    SecretInteger: '22'
+  array_7:
+    SecretInteger: '11'
+  array_8:
+    SecretInteger: '0'
+  array_9:
+    SecretInteger: '3'
+expected_outputs:
+  stdev_integer:
+    SecretInteger: '29'
