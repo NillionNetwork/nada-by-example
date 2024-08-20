@@ -47,13 +47,16 @@ async def store_inputs_and_run_blind_computation(input_data, program_name, outpu
     )
 
     # Pay to store the program and obtain a receipt of the payment
+    memo_store_program = f"petnet operation: store_program; program_name: {program_name}; user_id: {user_id}"
     receipt_store_program = await get_quote_and_pay(
         client,
         nillion.Operation.store_program(program_mir_path),
         payments_wallet,
         payments_client,
         cluster_id,
+        memo_store_program,
     )
+    print(f"🧾 RECEIPT MEMO: {memo_store_program}")
 
     # Store the program
     program_id = await client.store_program(
@@ -93,13 +96,16 @@ async def store_inputs_and_run_blind_computation(input_data, program_name, outpu
             }
         )
 
+        memo_store_values = f"petnet operation: store_values; name: {input_name}; user_id: {user_id}"
         receipt_store = await get_quote_and_pay(
             client,
             nillion.Operation.store_values(new_secret, ttl_days=5),
             payments_wallet,
             payments_client,
             cluster_id,
+            memo_store_values,
         )
+        print(f"🧾 RECEIPT MEMO: {memo_store_values}")
 
         # Set permissions for the client to compute on the program
         permissions = nillion.Permissions.default_for_user(client.user_id)
@@ -117,6 +123,7 @@ async def store_inputs_and_run_blind_computation(input_data, program_name, outpu
     
     computation_time_secrets = nillion.NadaValues({})
 
+    memo_compute = f"petnet operation: compute; program_id: {program_id}; user_id: {user_id}"
     # Pay for the compute
     receipt_compute = await get_quote_and_pay(
         client,
@@ -124,7 +131,9 @@ async def store_inputs_and_run_blind_computation(input_data, program_name, outpu
         payments_wallet,
         payments_client,
         cluster_id,
+        memo_compute,
     )
+    print(f"🧾 RECEIPT MEMO: {memo_compute}")
 
     # Compute on the secrets
     compute_id = await client.compute(
