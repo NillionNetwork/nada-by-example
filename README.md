@@ -129,7 +129,7 @@ cp .streamlit/secrets.toml.example .streamlit/secrets.toml
 ### 3. Run the `addition` test with starter values from `addition_test`
 
 ```
-streamlit run streamlit.py addition_test
+streamlit run streamlit_app.py addition_test
 ```
 
 ### 4. Run any other example that isn't using na.numpy or loops to define input and output parties

@@ -98,14 +98,13 @@ def parse_program_code_for_output_parties(program_code):
     OutputPartyVisitor().visit(tree)
     return output_parties
 
-def main():
-    # Look for the test name to use in the demo
-    if len(sys.argv) != 2:
-        st.write("Usage: streamlit run streamlit.py <nada_test_file_name>")
-        sys.exit(1)
-
-    # Get the YAML file name from the command line argument
-    nada_test_file_name = sys.argv[1]
+def main(nada_test_file_name=None):
+    # pass test name in via the command line
+    if nada_test_file_name is None:
+        if len(sys.argv) != 2:
+            st.write("Usage: streamlit run streamlit_app.py <nada_test_file_name>")
+            sys.exit(1)
+        nada_test_file_name = sys.argv[1]
 
     # Construct the YAML file path based on the provided file name
     yaml_file_path = os.path.join("tests", f"{nada_test_file_name}.yaml")
