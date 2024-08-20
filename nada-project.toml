@@ -225,3 +225,9 @@ prime_size = 128
 path = "src/variance_integer.py"
 name = "variance_integer"
 prime_size = 128
+
+[[programs]]
+path = "src/stdev_integer.py"
+name = "stdev_integer"
+prime_size = 128
+
