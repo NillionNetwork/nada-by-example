@@ -109,3 +109,31 @@ nada test {your_program_name}_test
 ```
 
 Test the program. If you run the above command without altering the default values (3s) in the test file (tests/{your_program_name}\_test.yaml), the test will fail because the expected test output doesn't match the resulting output. Modify the values in the test file and re-test the program.
+
+### Run a Streamlit App on Nillion Testnet
+
+### 1. Install dependencies
+
+```
+python3 -m venv .venv
+source .venv/bin/activate
+pip install -r requirements.txt
+```
+
+### 2. Create a streamlit secrets file and add your nilchain private key within `.streamlit/secrets.toml`
+
+```
+cp .streamlit/secrets.toml.example .streamlit/secrets.toml
+```
+
+### 3. Run the `addition` test with starter values from `addition_test`
+
+```
+streamlit run demo.py addition_test
+```
+
+### 4. Run any other example that isn't using na.numpy or loops to define input and output parties
+
+```
+streamlit run demo.py [test-name]
+```
