@@ -98,7 +98,7 @@ def parse_program_code_for_output_parties(program_code):
     OutputPartyVisitor().visit(tree)
     return output_parties
 
-def main(nada_test_file_name=None):
+def main(nada_test_file_name=None, compiled_nada_program_path=None):
     # pass test name in via the command line
     if nada_test_file_name is None:
         if len(sys.argv) != 2:
@@ -169,7 +169,7 @@ def main(nada_test_file_name=None):
             nilchain_private_key=st.secrets["nilchain_private_key"]
 
             # Call the async store_inputs_and_run_blind_computation function and wait for it to complete
-            result_message = asyncio.run(store_inputs_and_run_blind_computation(input_data, program_name, output_parties, nilchain_private_key))
+            result_message = asyncio.run(store_inputs_and_run_blind_computation(input_data, program_name, output_parties, nilchain_private_key, compiled_nada_program_path))
 
         st.divider()
 

@@ -17,7 +17,7 @@ chain_id = 'nillion-chain-testnet-1'
 bootnode = '/dns/node-1.testnet-photon.nillion-network.nilogy.xyz/tcp/14111/p2p/12D3KooWCfFYAb77NCjEk711e9BVe2E6mrasPZTtAjJAPtVAdbye'
 bootnodes = [bootnode]
 
-async def store_inputs_and_run_blind_computation(input_data, program_name, output_parties, nilchain_private_key):
+async def store_inputs_and_run_blind_computation(input_data, program_name, output_parties, nilchain_private_key, compiled_nada_program_path=None):
     # Create Nillion Client for user
     seed=str(uuid.uuid4())
     userkey = UserKey.from_seed(f"nada-by-example-{seed}")
@@ -31,8 +31,11 @@ async def store_inputs_and_run_blind_computation(input_data, program_name, outpu
     # Pay for and store the program
     # Set the program name and path to the compiled program
     # Convert the relative path to an absolute path
-    program_mir_path = os.path.abspath(os.path.join("target", f"{program_name}.nada.bin"))
-
+    if compiled_nada_program_path is None:
+        compiled_nada_program_path = os.path.abspath(os.path.join("target", f"{program_name}.nada.bin"))
+    
+    print(f"compiled nada program: {compiled_nada_program_path}")
+    
     # Create payments config, client and wallet
     payments_config = create_payments_config(chain_id, grpc_endpoint)
     payments_client = LedgerClient(payments_config)
@@ -53,7 +56,7 @@ async def store_inputs_and_run_blind_computation(input_data, program_name, outpu
     memo_store_program = f"petnet operation: store_program; program_name: {program_name}; user_id: {user_id}"
     receipt_store_program = await get_quote_and_pay(
         client,
-        nillion.Operation.store_program(program_mir_path),
+        nillion.Operation.store_program(compiled_nada_program_path),
         payments_wallet,
         payments_client,
         cluster_id,
@@ -63,7 +66,7 @@ async def store_inputs_and_run_blind_computation(input_data, program_name, outpu
 
     # Store the program
     program_id = await client.store_program(
-        cluster_id, program_name, program_mir_path, receipt_store_program
+        cluster_id, program_name, compiled_nada_program_path, receipt_store_program
     )
 
     print(program_id)
