@@ -101,7 +101,7 @@ def parse_program_code_for_output_parties(program_code):
 def main():
     # Look for the test name to use in the demo
     if len(sys.argv) != 2:
-        st.write("Usage: python3 demo.py <nada_test_file_name>")
+        st.write("Usage: streamlit run streamlit.py <nada_test_file_name>")
         sys.exit(1)
 
     # Get the YAML file name from the command line argument
