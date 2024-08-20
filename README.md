@@ -21,7 +21,7 @@ nada run [test-name]
 2. Run a demo
 
 ```
-streamlit run demo.py [test-name]
+streamlit run streamlit.py [test-name]
 ```
 
 ### Local Installation Instructions
@@ -129,11 +129,11 @@ cp .streamlit/secrets.toml.example .streamlit/secrets.toml
 ### 3. Run the `addition` test with starter values from `addition_test`
 
 ```
-streamlit run demo.py addition_test
+streamlit run streamlit.py addition_test
 ```
 
 ### 4. Run any other example that isn't using na.numpy or loops to define input and output parties
 
 ```
-streamlit run demo.py [test-name]
+streamlit run streamlit.py [test-name]
 ```
