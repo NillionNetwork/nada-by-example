@@ -21,7 +21,7 @@ nada run [test-name]
 2. Run a demo
 
 ```
-streamlit run streamlit.py [test-name]
+streamlit run streamlit_app.py [test-name]
 ```
 
 ### Local Installation Instructions
@@ -135,5 +135,5 @@ streamlit run streamlit_app.py addition_test
 ### 4. Run any other example that isn't using na.numpy or loops to define input and output parties
 
 ```
-streamlit run streamlit.py [test-name]
+streamlit run streamlit_app.py [test-name]
 ```
