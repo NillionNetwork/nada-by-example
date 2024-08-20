@@ -1,16 +1,16 @@
 # Deploying Streamlit Apps
 
-Deployed Streamlit apps live here in the demo_apps folder.
+Deployed Streamlit apps live here in the streamlit_demo_apps folder.
 
 ## How to add a new Streamlit App
 
-### 1. Create an app file in the demo_apps folder
+### 1. Create an app file in the streamlit_demo_apps folder
 
 Check out the addition app file example:
 
 `app_addition.py`
 
-### 2. Copy the compiled Nada program file from the target/ folder into the demo_apps/compiled_nada_programs folder
+### 2. Copy the compiled Nada program file from the target/ folder into the streamlit_demo_apps/compiled_nada_programs folder
 
 Check out the compiled Nada program file for addition:
 
@@ -32,11 +32,11 @@ program_test_name = 'addition_test'
 Make sure the apps will work when deployed by testing this command from the root folder.
 
 ```
-streamlit run demo_apps/[app_file_name].py
+streamlit run streamlit_demo_apps/[app_file_name].py
 ```
 
 For example to make sure the addition app will work when deployed, run
 
 ```
-streamlit run demo_apps/app_addition.py
+streamlit run streamlit_demo_apps/app_addition.py
 ```
