@@ -1,6 +1,7 @@
 import asyncio
 import py_nillion_client as nillion
 import uuid
+import os
 
 from py_nillion_client import NodeKey, UserKey
 from nillion_python_helpers import get_quote_and_pay, create_nillion_client, create_payments_config
@@ -29,7 +30,9 @@ async def store_inputs_and_run_blind_computation(input_data, program_name, outpu
 
     # Pay for and store the program
     # Set the program name and path to the compiled program
-    program_mir_path = f"./target/{program_name}.nada.bin"
+    # Convert the relative path to an absolute path
+    program_mir_path = os.path.abspath(os.path.join("target", f"{program_name}.nada.bin"))
+
     # Create payments config, client and wallet
     payments_config = create_payments_config(chain_id, grpc_endpoint)
     payments_client = LedgerClient(payments_config)
