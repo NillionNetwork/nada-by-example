@@ -193,11 +193,9 @@ def main(nada_test_file_name=None, compiled_nada_program_path=None):
 
         st.subheader("Nada Program Result")
 
-        st.success(f"Blind computation on the {program_name} program is complete!", icon="🙈")
-
         st.text('Output(s)')
-        st.caption(f"A Nada program returns one or more outputs to designated output parties - {output_parties}")
-        st.code(result_message['output'], language='json')
+        st.caption(f"The Nada program returned one or more outputs to designated output parties - {output_parties}")
+        st.success(result_message['output'], icon="🖥️")
 
         st.text('Nilchain Nillion Address')
         st.caption(f"Blind computation ran on the Nillion PetNet and operations were paid for on the Nilchain Testnet. Check out the Nilchain transactions that paid for each PetNet operation (store program, store secrets, compute) on the [Nillion Testnet Explorer](https://testnet.nillion.explorers.guru/account/{result_message['nillion_address']})")
