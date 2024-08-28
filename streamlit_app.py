@@ -127,7 +127,6 @@ def main(nada_test_file_name=None, compiled_nada_program_path=None):
     input_parties = parse_program_code_for_inputs(program_code)
 
     cluster_id_from_streamlit_config = st.secrets.get("cluster_id", None)
-    print(cluster_id_from_streamlit_config)
     grpc_endpoint_from_streamlit_config = st.secrets.get("grpc_endpoint", None)
     chain_id_from_streamlit_config = st.secrets.get("chain_id", None)
     bootnodes_str_from_streamlit_config = st.secrets.get("bootnode", None)
@@ -135,15 +134,15 @@ def main(nada_test_file_name=None, compiled_nada_program_path=None):
 
     # Add a toggle section for configuration values
     if all([cluster_id_from_streamlit_config, grpc_endpoint_from_streamlit_config, chain_id_from_streamlit_config, bootnodes]):
-        with st.expander("Show Nillion Network Configuration"):
-            st.text("Cluster ID")
+        with st.expander("Nillion Network Configuration"):
+            st.text("PetNet Cluster ID")
             st.code(cluster_id_from_streamlit_config)
-            st.text("GRPC Endpoint")
-            st.code(grpc_endpoint_from_streamlit_config)
-            st.text("Chain ID")
-            st.code(chain_id_from_streamlit_config)
-            st.text("Bootnodes")
+            st.text("PetNet Bootnodes")
             st.code(bootnodes_str_from_streamlit_config)
+            st.text("NilChain GRPC Endpoint")
+            st.code(grpc_endpoint_from_streamlit_config)
+            st.text("NilChain Chain ID")
+            st.code(chain_id_from_streamlit_config)
 
     # Display the program code
     st.subheader(f"{program_name}.py")

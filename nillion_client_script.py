@@ -35,8 +35,6 @@ async def store_inputs_and_run_blind_computation(
     grpc_endpoint = grpc_endpoint or nillion_testnet_default_config["grpc_endpoint"]
     chain_id = chain_id or nillion_testnet_default_config["chain_id"]
     bootnodes = bootnodes or nillion_testnet_default_config["bootnodes"]
-
-    print(cluster_id, grpc_endpoint, chain_id, bootnodes)
     
     # Create Nillion Client for user
     seed=str(uuid.uuid4())
