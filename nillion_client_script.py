@@ -11,13 +11,33 @@ from cosmpy.aerial.wallet import LocalWallet
 from cosmpy.crypto.keypairs import PrivateKey
 
 # Nillion Testnet Config: https://docs.nillion.com/network-configuration#testnet
-cluster_id = 'b13880d3-dde8-4a75-a171-8a1a9d985e6c'
-grpc_endpoint = '65.109.228.73:9090'
-chain_id = 'nillion-chain-testnet-1'
-bootnode = '/dns/node-1.testnet-photon.nillion-network.nilogy.xyz/tcp/14111/p2p/12D3KooWCfFYAb77NCjEk711e9BVe2E6mrasPZTtAjJAPtVAdbye'
-bootnodes = [bootnode]
+nillion_testnet_default_config = {
+    "cluster_id": 'b13880d3-dde8-4a75-a171-8a1a9d985e6c',
+    "grpc_endpoint": '65.109.228.73:9090',
+    "chain_id": 'nillion-chain-testnet-1',
+    "bootnodes": ['/dns/node-1.testnet-photon.nillion-network.nilogy.xyz/tcp/14111/p2p/12D3KooWCfFYAb77NCjEk711e9BVe2E6mrasPZTtAjJAPtVAdbye']
+}
 
-async def store_inputs_and_run_blind_computation(input_data, program_name, output_parties, nilchain_private_key, compiled_nada_program_path=None):
+async def store_inputs_and_run_blind_computation(
+        input_data, 
+        program_name, 
+        output_parties, 
+        nilchain_private_key, 
+        compiled_nada_program_path=None,
+        cluster_id=None,
+        grpc_endpoint=None,
+        chain_id=None,
+        bootnodes=None,
+    ):
+
+    # Set fallback values if params are None
+    cluster_id = cluster_id or nillion_testnet_default_config["cluster_id"]
+    grpc_endpoint = grpc_endpoint or nillion_testnet_default_config["grpc_endpoint"]
+    chain_id = chain_id or nillion_testnet_default_config["chain_id"]
+    bootnodes = bootnodes or nillion_testnet_default_config["bootnodes"]
+
+    print(cluster_id, grpc_endpoint, chain_id, bootnodes)
+    
     # Create Nillion Client for user
     seed=str(uuid.uuid4())
     userkey = UserKey.from_seed(f"nada-by-example-{seed}")
@@ -166,4 +186,3 @@ async def store_inputs_and_run_blind_computation(input_data, program_name, outpu
                 'output': blind_computation_results,
                 'nillion_address': payments_wallet,      
             }
-        

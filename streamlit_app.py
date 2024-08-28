@@ -126,6 +126,25 @@ def main(nada_test_file_name=None, compiled_nada_program_path=None):
     program_code = get_program_code(program_name)
     input_parties = parse_program_code_for_inputs(program_code)
 
+    cluster_id_from_streamlit_config = st.secrets.get("cluster_id", None)
+    print(cluster_id_from_streamlit_config)
+    grpc_endpoint_from_streamlit_config = st.secrets.get("grpc_endpoint", None)
+    chain_id_from_streamlit_config = st.secrets.get("chain_id", None)
+    bootnodes_str_from_streamlit_config = st.secrets.get("bootnode", None)
+    bootnodes = [bootnodes_str_from_streamlit_config] if bootnodes_str_from_streamlit_config else None
+
+    # Add a toggle section for configuration values
+    if all([cluster_id_from_streamlit_config, grpc_endpoint_from_streamlit_config, chain_id_from_streamlit_config, bootnodes]):
+        with st.expander("Show Nillion Network Configuration"):
+            st.text("Cluster ID")
+            st.code(cluster_id_from_streamlit_config)
+            st.text("GRPC Endpoint")
+            st.code(grpc_endpoint_from_streamlit_config)
+            st.text("Chain ID")
+            st.code(chain_id_from_streamlit_config)
+            st.text("Bootnodes")
+            st.code(bootnodes_str_from_streamlit_config)
+
     # Display the program code
     st.subheader(f"{program_name}.py")
     st.code(program_code, language='python')
@@ -169,7 +188,7 @@ def main(nada_test_file_name=None, compiled_nada_program_path=None):
             nilchain_private_key=st.secrets["nilchain_private_key"]
 
             # Call the async store_inputs_and_run_blind_computation function and wait for it to complete
-            result_message = asyncio.run(store_inputs_and_run_blind_computation(input_data, program_name, output_parties, nilchain_private_key, compiled_nada_program_path))
+            result_message = asyncio.run(store_inputs_and_run_blind_computation(input_data, program_name, output_parties, nilchain_private_key, compiled_nada_program_path, cluster_id_from_streamlit_config, grpc_endpoint_from_streamlit_config, chain_id_from_streamlit_config, bootnodes))
 
         st.divider()
 
