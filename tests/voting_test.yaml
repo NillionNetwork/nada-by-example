@@ -1,28 +1,16 @@
 ---
 program: voting
 inputs:
-  vote_start_count:
-    SecretInteger: '0'
-  vote_0:
-    SecretInteger: '3'
-  vote_1:
-    SecretInteger: '1'
-  vote_2:
-    SecretInteger: '3'
-  vote_3:
-    SecretInteger: '1'
-  vote_4:
-    SecretInteger: '2'
-  vote_5:
-    SecretInteger: '3'
-  vote_6:
-    SecretInteger: '1'
-  vote_7:
-    SecretInteger: '3'
+  vote_start_count: 0
+  vote_0: 3
+  vote_1: 1
+  vote_2: 3
+  vote_3: 1
+  vote_4: 2
+  vote_5: 3
+  vote_6: 1
+  vote_7: 3
 expected_outputs:
-  kamala_harris_votes:
-    SecretInteger: '3'
-  donald_trump_votes:
-    SecretInteger: '1'
-  rfk_jr_votes:
-    SecretInteger: '4'
+  kamala_harris_votes: 3
+  donald_trump_votes: 1
+  rfk_jr_votes: 4

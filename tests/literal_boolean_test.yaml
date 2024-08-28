@@ -1,10 +1,7 @@
 ---
 program: literal_boolean
 inputs:
-  public_num_1:
-    Integer: '1'
-  public_num_2:
-    Integer: '3'
+  public_num_1: 1
+  public_num_2: 3
 expected_outputs:
-  result:
-    Boolean: false
+  result: false

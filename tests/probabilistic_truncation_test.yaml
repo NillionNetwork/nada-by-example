@@ -1,10 +1,7 @@
 ---
 program: probabilistic_truncation
 inputs:
-  precision:
-    UnsignedInteger: '4'
-  base:
-    SecretInteger: '800'
+  precision: 4
+  base: 800
 expected_outputs:
-  trunc_pr_result:
-    SecretInteger: '49'
+  trunc_pr_result: 49
