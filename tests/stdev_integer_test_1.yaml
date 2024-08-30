@@ -1,26 +1,15 @@
 ---
 program: stdev_integer
 inputs:
-  array_0:
-    SecretInteger: '5'
-  array_1:
-    SecretInteger: '3'
-  array_2:
-    SecretInteger: '1'
-  array_3:
-    SecretInteger: '12'
-  array_4:
-    SecretInteger: '3'
-  array_5:
-    SecretInteger: '1'
-  array_6:
-    SecretInteger: '5'
-  array_7:
-    SecretInteger: '3'
-  array_8:
-    SecretInteger: '1'
-  array_9:
-    SecretInteger: '70'
+  array_0: 5
+  array_1: 3
+  array_2: 1
+  array_3: 12
+  array_4: 3
+  array_5: 1
+  array_6: 5
+  array_7: 3
+  array_8: 1
+  array_9: 70
 expected_outputs:
-  stdev_integer:
-    SecretInteger: '20'
+  stdev_integer: 20
