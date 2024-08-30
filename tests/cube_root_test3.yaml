@@ -1,8 +1,6 @@
 ---
 program: cube_root
 inputs:
-  num:
-    SecretInteger: "734523"
+  num: 734523
 expected_outputs:
-  my_output:
-    SecretInteger: "90"
+  my_output: 90

@@ -1,12 +1,8 @@
 ---
 program: for_loop
 inputs:
-  start:
-    SecretInteger: '5'
+  start: 5
 expected_outputs:
-  ascending_list_2:
-    SecretInteger: '7'
-  ascending_list_0:
-    SecretInteger: '5'
-  ascending_list_1:
-    SecretInteger: '6'
+  ascending_list_2: 7
+  ascending_list_0: 5
+  ascending_list_1: 6

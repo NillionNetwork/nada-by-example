@@ -1,12 +1,8 @@
 ---
 program: public_conditional
 inputs:
-  num_1:
-    SecretInteger: '5'
-  num_2:
-    SecretInteger: '4'
-  is_raining:
-    Boolean: true
+  num_1: 5
+  num_2: 4
+  is_raining: true
 expected_outputs:
-  result:
-    SecretInteger: '10'
+  result: 10

@@ -1,10 +1,7 @@
 ---
 program: equality_public
 inputs:
-  secret_guess:
-    SecretInteger: "3"
-  secret_target:
-    SecretInteger: "3"
+  secret_guess: 3
+  secret_target: 3
 expected_outputs:
-  is_same_num:
-    Boolean: true
+  is_same_num: true

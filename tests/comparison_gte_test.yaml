@@ -1,10 +1,7 @@
 ---
 program: comparison_gte
 inputs:
-  y:
-    SecretInteger: '3'
-  x:
-    SecretInteger: '4'
+  y: 3
+  x: 4
 expected_outputs:
-  x_greater_than_or_equal_y:
-    SecretBoolean: true
+  x_greater_than_or_equal_y: true

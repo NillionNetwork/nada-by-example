@@ -1,10 +1,7 @@
 ---
 program: addition_unsigned
 inputs:
-  num_1:
-    SecretUnsignedInteger: '5'
-  num_2:
-    SecretUnsignedInteger: '3'
+  num_1: 5
+  num_2: 3
 expected_outputs:
-  sum:
-    SecretUnsignedInteger: '8'
+  sum: 8
