@@ -2,6 +2,9 @@ name = "nada-by-example"
 version = "0.1.0"
 authors = [""]
 
+[test_framework.nada-test]
+command = "nada-test ./tests"
+
 [[programs]]
 path = "src/main.py"
 prime_size = 128
