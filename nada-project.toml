@@ -226,3 +226,7 @@ path = "src/stdev_integer.py"
 name = "stdev_integer"
 prime_size = 128
 
+[[programs]]
+path = "src/not.py"
+name = "not"
+prime_size = 128
