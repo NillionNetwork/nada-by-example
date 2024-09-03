@@ -5,25 +5,30 @@ Thank you for considering contributing to the Nada by Example repository! Your c
 ## Getting Started
 
 ### 1. Fork and Clone the Repository
+
 - **Fork the Repository:** Fork the repo on GitHub and clone your fork to your local machine.
 - **Create a Branch:** Always create a new branch for your work. Use a descriptive name (e.g., `feature/new-example-name`, `bugfix/fix-issue-123`).
 
 ### 2. Choose or Propose an Example
+
 - **Choose an Existing Issue:** Check the [issues list](https://github.com/NillionNetwork/nada-by-example/issues) for examples or problems that need solving.
 - **Propose a New Example:** If you have a new idea, open an issue to discuss it before you start coding.
 
 ### 3. Develop Your Example
-- **Follow the Guidelines:** Ensure your example follows the coding standards and practices described below.
+
+- **Add a new example** Follow README instructions on how to [add a new example](https://github.com/NillionNetwork/nada-by-example?tab=readme-ov-file#add-a-new-example) including at least one test file.
 - **Document Your Code:** Provide clear comments and documentation within your code to help others understand your example.
-- **Test Your Example:** Make sure your example works as expected and does not break existing examples.
+- **Test Your Example:** Make sure all tests pass using `nada test`.
 
 ## Pull Request Process
 
 ### 1. Create a Pull Request
+
 - **Title and Description:** Provide a clear title and detailed description of the example or issue you're addressing.
 - **Link to Issues:** If your pull request addresses an issue, link to it in the description (e.g., `Closes #123`).
 
 ### 2. Complete the PR Template
+
 When creating a pull request, use the provided PR template:
 
 - **Description:** Clearly describe the example you are adding. Explain what it does, its purpose, and who it benefits.
@@ -32,6 +37,7 @@ When creating a pull request, use the provided PR template:
 - **Optional Contributor POAP:** (Proof of Attendance Protocol) If you want to receive a contributor POAP, provide your Twitter handle and Ethereum address.
 
 ### 3. Request a Review
+
 - **Assign Reviewers:** Request a review from one or more project maintainers. They will provide feedback and merge your PR if everything looks good.
 
 ## Code Style and Standards
