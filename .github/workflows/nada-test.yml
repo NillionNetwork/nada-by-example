@@ -1,8 +1,8 @@
-name: Run Nada Test on PR
-
+name: Run Nada Test
 on:
   pull_request:
     branches: [ main ]
+  workflow_dispatch:
 
 jobs:
   test:
@@ -21,21 +21,25 @@ jobs:
         python -m pip install --upgrade pip
         pip install -r requirements.txt
     
-    - name: Install Nillion
+    - name: Install and Configure Nada
       run: |
-        # Install nilup
         curl https://nilup.nilogy.xyz/install.sh | bash
+        echo "Current PATH: $PATH"
+        echo "Content of ~/.bashrc:"
+        cat ~/.bashrc
+        echo "Adding nilup to PATH"
+        export PATH="$HOME/.nilup/bin:$PATH"
         echo "$HOME/.nilup/bin" >> $GITHUB_PATH
-        source /home/runner/.bashrc
-        nilup --version
-
-        # Install nillion tools
-        nilup install latest
-        nilup use latest
-        source /home/runner/.bashrc
-        # Verify nillion is installed
-        nillion --version
+        echo "Updated PATH: $PATH"
+        echo "Nilup location:"
+        which nilup || echo "nilup not found in PATH"
+        $HOME/.nilup/bin/nilup install latest
+        $HOME/.nilup/bin/nilup use latest
+        echo "Nillion version:"
+        $HOME/.nilup/bin/nillion --version || echo "nillion not found"
     
-    - name: Run tests
+    - name: Run nada test
       run: |
-        nada test
+        echo "PATH at test step: $PATH"
+        which nada || echo "nada not found in PATH"
+        $HOME/.nilup/bin/nada test
