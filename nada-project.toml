@@ -238,3 +238,8 @@ prime_size = 128
 path = "src/shuffle.py"
 name = "shuffle"
 prime_size = 128
+
+[[programs]]
+path = "src/shuffle_simple.py"
+name = "shuffle_simple"
+prime_size = 128
