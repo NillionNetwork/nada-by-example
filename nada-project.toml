@@ -233,3 +233,8 @@ prime_size = 128
 path = "src/not.py"
 name = "not"
 prime_size = 128
+
+[[programs]]
+path = "src/shuffle.py"
+name = "shuffle"
+prime_size = 128
