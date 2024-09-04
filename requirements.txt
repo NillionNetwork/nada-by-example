@@ -1,5 +1,6 @@
 nada-dsl
 nada-numpy
+nada-test
 
 # streamlit demo dependencies
 pyyaml
