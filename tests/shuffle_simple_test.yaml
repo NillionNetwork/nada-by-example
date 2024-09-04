@@ -1,0 +1,12 @@
+---
+program: shuffle_simple
+inputs:
+  num_0: 3
+  num_1: 3
+  num_2: 3
+  num_3: 3
+expected_outputs:
+  shuffled_num_0: 3
+  shuffled_num_1: 3
+  shuffled_num_2: 3
+  shuffled_num_3: 3
