@@ -1,7 +1,7 @@
 ---
-program: equality_public
+program: not
 inputs:
   secret_guess: 3
   secret_target: 3
 expected_outputs:
-  is_same_num: true
+  check_is_not_equal_to: false

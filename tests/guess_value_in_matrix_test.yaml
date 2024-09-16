@@ -1,52 +1,28 @@
 ---
 program: guess_value_in_matrix
 inputs:
-  guess_position_row:
-    SecretInteger: '1'
-  guess_position_col:
-    SecretInteger: '1'
-  guess_secret_value:
-    SecretInteger: '5'
-  public_integer_current_row_iterator:
-    Integer: '0'
-  public_integer_current_col_iterator:
-    Integer: '0'
-  board_r1_c4:
-    SecretInteger: '3'
-  board_r2_c0:
-    SecretInteger: '3'
-  board_r0_c3:
-    SecretInteger: '3'
-  board_r2_c3:
-    SecretInteger: '3'
-  board_r0_c1:
-    SecretInteger: '3'
-  board_r1_c1:
-    SecretInteger: '5'
-  board_r2_c1:
-    SecretInteger: '3'
-  board_r2_c2:
-    SecretInteger: '3'
-  board_r1_c0:
-    SecretInteger: '3'
-  board_r2_c4:
-    SecretInteger: '3'
-  board_r1_c2:
-    SecretInteger: '3'
-  board_r0_c2:
-    SecretInteger: '3'
-  board_r0_c4:
-    SecretInteger: '3'
-  board_r1_c3:
-    SecretInteger: '3'
-  board_r0_c0:
-    SecretInteger: '5'
+  guess_position_row: 1
+  guess_position_col: 1
+  guess_secret_value: 5
+  public_integer_current_row_iterator: 0
+  public_integer_current_col_iterator: 0
+  board_r1_c4: 3
+  board_r2_c0: 3
+  board_r0_c3: 3
+  board_r2_c3: 3
+  board_r0_c1: 3
+  board_r1_c1: 5
+  board_r2_c1: 3
+  board_r2_c2: 3
+  board_r1_c0: 3
+  board_r2_c4: 3
+  board_r1_c2: 3
+  board_r0_c2: 3
+  board_r0_c4: 3
+  board_r1_c3: 3
+  board_r0_c0: 5
 expected_outputs:
-  found_int_value:
-    SecretInteger: '5'
-  found_col:
-    SecretInteger: '1'
-  found_row:
-    SecretInteger: '1'
-  guesser_was_correct:
-    SecretBoolean: true
+  found_int_value: 5
+  found_col: 1
+  found_row: 1
+  guesser_was_correct: true

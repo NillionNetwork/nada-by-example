@@ -1,8 +1,0 @@
----
-program: hello_world
-inputs:
-  favorite_number:
-    SecretInteger: '42'
-expected_outputs:
-  output:
-    SecretInteger: '42'

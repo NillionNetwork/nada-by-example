@@ -13,7 +13,7 @@ from cosmpy.crypto.keypairs import PrivateKey
 # Nillion Testnet Config: https://docs.nillion.com/network-configuration#testnet
 nillion_testnet_default_config = {
     "cluster_id": 'b13880d3-dde8-4a75-a171-8a1a9d985e6c',
-    "grpc_endpoint": '65.109.228.73:9090',
+    "grpc_endpoint": 'https://testnet-nillion-grpc.lavenderfive.com',
     "chain_id": 'nillion-chain-testnet-1',
     "bootnodes": ['/dns/node-1.testnet-photon.nillion-network.nilogy.xyz/tcp/14111/p2p/12D3KooWCfFYAb77NCjEk711e9BVe2E6mrasPZTtAjJAPtVAdbye']
 }
@@ -28,6 +28,7 @@ async def store_inputs_and_run_blind_computation(
         grpc_endpoint=None,
         chain_id=None,
         bootnodes=None,
+        should_store_inputs=False
     ):
 
     # Set fallback values if params are None
@@ -95,7 +96,9 @@ async def store_inputs_and_run_blind_computation(
         compute_bindings.add_output_party(party_name, party_id)
 
     store_ids=[]
-    # Store each input
+    compute_time_values = {}
+
+    # Iterate through each input to create a secret
     for input_name, details in input_data.items():
         value, party_name, input_type = details
         print(f"Processing Input: {input_name}, Value: {value}, Party: {party_name}, Type: {input_type}")
@@ -113,40 +116,40 @@ async def store_inputs_and_run_blind_computation(
             'PublicBoolean': nillion.Boolean,
         }
 
-        nada_val = types_mapping.get(input_type, nillion.Integer)(value)
-
-        new_secret = nillion.NadaValues(
-            {
-                input_name: nada_val
-            }
-        )
-
-        memo_store_values = f"petnet operation: store_values; name: {input_name}; user_id: {user_id}"
-        receipt_store = await get_quote_and_pay(
-            client,
-            nillion.Operation.store_values(new_secret, ttl_days=5),
-            payments_wallet,
-            payments_client,
-            cluster_id,
-            memo_store_values,
-        )
-        print(f"🧾 RECEIPT MEMO: {memo_store_values}")
-
-        # Set permissions for the client to compute on the program
-        permissions = nillion.Permissions.default_for_user(client.user_id)
-        permissions.add_compute_permissions({client.user_id: {program_id}})
+        # Add compute bindings for secret
         compute_bindings.add_input_party(party_name, party_id)
 
-        store_id = await client.store_values(
-            cluster_id, new_secret, permissions, receipt_store
-        )
-        print(input_name, store_id)
-        store_ids.append(store_id)
-        print(store_ids)
+        # Create secret
+        nada_val = types_mapping.get(input_type, nillion.Integer)(value)
 
-        await asyncio.sleep(1)  # Simulate async delay for each input
+        if should_store_inputs:
+            new_secret = nillion.NadaValues({
+                input_name: nada_val
+            })
+            memo_store_values = f"petnet operation: store_values; name: {input_name}; user_id: {user_id}"
+            receipt_store = await get_quote_and_pay(
+                client,
+                nillion.Operation.store_values(new_secret, ttl_days=5),
+                payments_wallet,
+                payments_client,
+                cluster_id,
+                memo_store_values,
+            )
+            print(f"🧾 RECEIPT MEMO: {memo_store_values}")
+
+            # Set permissions for the client to compute on the program
+            permissions = nillion.Permissions.default_for_user(client.user_id)
+            permissions.add_compute_permissions({client.user_id: {program_id}})
+
+            store_id = await client.store_values(
+                cluster_id, new_secret, permissions, receipt_store
+            )
+            store_ids.append(store_id)
+        else:
+            # Add the secret to compute_time_values instead of storing it
+            compute_time_values[input_name] = nada_val
     
-    computation_time_secrets = nillion.NadaValues({})
+    computation_time_secrets = nillion.NadaValues(compute_time_values)
 
     memo_compute = f"petnet operation: compute; program_id: {program_id}; user_id: {user_id}"
     # Pay for the compute

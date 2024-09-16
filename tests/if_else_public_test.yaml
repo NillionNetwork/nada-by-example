@@ -1,14 +1,9 @@
 ---
 program: if_else_public
 inputs:
-  conditional_num_2:
-    Integer: '9'
-  secret_2:
-    SecretInteger: '90'
-  secret_1:
-    SecretInteger: '100'
-  conditional_num_1:
-    Integer: '10'
+  conditional_num_2: 9
+  secret_2: 90
+  secret_1: 100
+  conditional_num_1: 10
 expected_outputs:
-  conditional_product:
-    SecretInteger: '200'
+  conditional_product: 200

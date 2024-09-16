@@ -1,10 +1,7 @@
 ---
 program: subtraction
 inputs:
-  num_2:
-    SecretInteger: '3'
-  num_1:
-    SecretInteger: '13'
+  num_2: 3
+  num_1: 13
 expected_outputs:
-  difference:
-    SecretInteger: '10'
+  difference: 10

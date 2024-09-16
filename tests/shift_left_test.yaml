@@ -1,10 +1,7 @@
 ---
 program: shift_left
 inputs:
-  base:
-    SecretInteger: '5'
-  shift:
-    UnsignedInteger: '3'
+  base: 5
+  shift: 3
 expected_outputs:
-  left_shift_result:
-    SecretInteger: '40'
+  left_shift_result: 40

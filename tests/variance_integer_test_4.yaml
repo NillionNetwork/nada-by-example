@@ -1,26 +1,15 @@
 ---
 program: variance_integer
 inputs:
-  array_0:
-    SecretInteger: '100'
-  array_1:
-    SecretInteger: '99'
-  array_2:
-    SecretInteger: '80'
-  array_3:
-    SecretInteger: '79'
-  array_4:
-    SecretInteger: '60'
-  array_5:
-    SecretInteger: '59'
-  array_6:
-    SecretInteger: '40'
-  array_7:
-    SecretInteger: '39'
-  array_8:
-    SecretInteger: '20'
-  array_9:
-    SecretInteger: '19'
+  array_0: 100
+  array_1: 99
+  array_2: 80
+  array_3: 79
+  array_4: 60
+  array_5: 59
+  array_6: 40
+  array_7: 39
+  array_8: 20
+  array_9: 19
 expected_outputs:
-  variance:
-    SecretInteger: '800'
+  variance: 800

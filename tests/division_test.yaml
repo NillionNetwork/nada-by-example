@@ -1,10 +1,7 @@
 ---
 program: division
 inputs:
-  numerator:
-    SecretInteger: '20'
-  denominator:
-    SecretInteger: '4'
+  numerator: 20
+  denominator: 4
 expected_outputs:
-  quotient:
-    SecretInteger: '5'
+  quotient: 5

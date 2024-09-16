@@ -1,10 +1,7 @@
 ---
 program: power
 inputs:
-  exponent:
-    Integer: '2'
-  base:
-    Integer: '4'
+  exponent: 2
+  base: 4
 expected_outputs:
-  power:
-    Integer: '16'
+  power: 16

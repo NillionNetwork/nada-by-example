@@ -1,8 +1,6 @@
 ---
 program: reveal
 inputs:
-  favorite_number:
-    SecretInteger: '6'
+  favorite_number: 6
 expected_outputs:
-  num_squared:
-    Integer: '36'
+  num_squared: 36

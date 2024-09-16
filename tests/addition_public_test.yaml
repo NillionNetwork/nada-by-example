@@ -1,12 +1,8 @@
 ---
 program: addition_public
 inputs:
-  num_1:
-    SecretInteger: '-5'
-  num_2:
-    SecretInteger: '1'
-  public_num:
-    Integer: '10'
+  num_1: -5
+  num_2: 1
+  public_num: 10
 expected_outputs:
-  sum:
-    SecretInteger: '6'
+  sum: 6

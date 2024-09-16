@@ -55,13 +55,13 @@ pip install -r requirements.txt
 nilup instrumentation enable --wallet <your-eth-wallet-address>
 ```
 
-### Build (compile) all Nada programs
+### Build (compile) all Nada programs with the --mir-json flag
 
 ```
-nada build
+nada build --mir-json
 ```
 
-This creates one compiled binary (.nada.bin) file per program listed in the `nada-project.toml` file in the target/ directory.
+This creates one compiled binary (.nada.bin) file and one json file (.nada.json) per program listed in the `nada-project.toml` file in the target/ directory. The json file is needed to get inputs, outputs, types, and parties for any Streamlit demo apps.
 
 ### Test a Nada program
 

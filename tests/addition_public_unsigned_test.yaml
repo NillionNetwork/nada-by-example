@@ -1,12 +1,8 @@
 ---
 program: addition_public_unsigned
 inputs:
-  public_num:
-    UnsignedInteger: '5'
-  num_1:
-    SecretUnsignedInteger: '1'
-  num_2:
-    SecretUnsignedInteger: '10'
+  public_num: 5
+  num_1: 1
+  num_2: 10
 expected_outputs:
-  sum:
-    SecretUnsignedInteger: '16'
+  sum: 16
