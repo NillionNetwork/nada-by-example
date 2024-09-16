@@ -29,7 +29,7 @@ tasks:
       source /home/gitpod/.bashrc && export PATH=$PATH:/home/gitpod/.nilup/sdks/latest
       nillion -V
       pip install -r requirements.txt
-      nada build
+      nada build --mir-json
       echo "✅ Compiled all programs to binary (.nada.bin) in target/ directory"
       echo "🖥️ Check out Nada programs in src/ directory"
       echo "🧪 Check out Nada program test files in tests/ directory"

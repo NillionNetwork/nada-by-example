@@ -21,7 +21,7 @@ nada run [test-name]
 2. Run a demo
 
 ```
-streamlit run streamlit.py [test-name]
+streamlit run streamlit_app.py [test-name]
 ```
 
 ### Local Installation Instructions
@@ -55,13 +55,13 @@ pip install -r requirements.txt
 nilup instrumentation enable --wallet <your-eth-wallet-address>
 ```
 
-### Build (compile) all Nada programs
+### Build (compile) all Nada programs with the --mir-json flag
 
 ```
-nada build
+nada build --mir-json
 ```
 
-This creates one compiled binary (.nada.bin) file per program listed in the `nada-project.toml` file in the target/ directory.
+This creates one compiled binary (.nada.bin) file and one json file (.nada.json) per program listed in the `nada-project.toml` file in the target/ directory. The json file is needed to get inputs, outputs, types, and parties for any Streamlit demo apps.
 
 ### Test a Nada program
 
@@ -129,11 +129,11 @@ cp .streamlit/secrets.toml.example .streamlit/secrets.toml
 ### 3. Run the `addition` test with starter values from `addition_test`
 
 ```
-streamlit run streamlit.py addition_test
+streamlit run streamlit_app.py addition_test
 ```
 
 ### 4. Run any other example that isn't using na.numpy or loops to define input and output parties
 
 ```
-streamlit run streamlit.py [test-name]
+streamlit run streamlit_app.py [test-name]
 ```
