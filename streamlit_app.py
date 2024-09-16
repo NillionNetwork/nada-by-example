@@ -105,14 +105,6 @@ def parse_nada_json(json_data):
     return input_info, output_info
 
 def main(nada_test_file_name=None, path_nada_bin=None, path_nada_json=None):
-    print(path_nada_json)
-    """
-    Main function to run the Streamlit app for Nada program demonstration.
-    
-    Args:
-    nada_test_file_name (str, optional): Name of the test file.
-    path_nada_bin (str, optional): Path to the compiled Nada program.
-    """
     # pass test name in via the command line
     if nada_test_file_name is None:
         if len(sys.argv) != 2:
@@ -130,7 +122,6 @@ def main(nada_test_file_name=None, path_nada_bin=None, path_nada_json=None):
 
     # Parse the YAML file
     program_name, input_values, expected_outputs = parse_nada_yaml_test_file(yaml_file_path)
-    print(program_name, input_values, expected_outputs)
 
     # Get the program code
     program_code = get_program_code(program_name)

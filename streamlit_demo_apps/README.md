@@ -4,6 +4,12 @@ Deployed Streamlit apps live here in the streamlit_demo_apps folder.
 
 ## How to add a new Streamlit App
 
+### 0. Create a streamlit secrets file and add your nilchain private key within `.streamlit/secrets.toml`
+
+```
+cp .streamlit/secrets.toml.example .streamlit/secrets.toml
+```
+
 ### 1. Create an app file in the streamlit_demo_apps folder
 
 Check out the addition app file example:
