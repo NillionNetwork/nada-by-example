@@ -2,13 +2,11 @@ name = "nada-by-example"
 version = "0.1.0"
 authors = [""]
 
-[[programs]]
-path = "src/main.py"
-prime_size = 128
+[test_framework.nada-test]
+command = "nada-test ./tests"
 
 [[programs]]
-path = "src/hello_world.py"
-name = "hello_world"
+path = "src/main.py"
 prime_size = 128
 
 [[programs]]
@@ -231,3 +229,17 @@ path = "src/stdev_integer.py"
 name = "stdev_integer"
 prime_size = 128
 
+[[programs]]
+path = "src/not.py"
+name = "not"
+prime_size = 128
+
+[[programs]]
+path = "src/shuffle.py"
+name = "shuffle"
+prime_size = 128
+
+[[programs]]
+path = "src/shuffle_simple.py"
+name = "shuffle_simple"
+prime_size = 128

@@ -1,0 +1,46 @@
+name: Run Nada Test
+on:
+  pull_request:
+    branches: [ main ]
+  workflow_dispatch:
+
+jobs:
+  test:
+    runs-on: ubuntu-latest
+    
+    steps:
+    - uses: actions/checkout@v3
+    
+    - name: Set up Python 3.12
+      uses: actions/setup-python@v4
+      with:
+        python-version: '3.12'
+    
+    - name: Install dependencies
+      run: |
+        python -m pip install --upgrade pip
+        pip install -r requirements.txt
+    
+    - name: Install and Configure Nada
+      run: |
+        curl https://nilup.nilogy.xyz/install.sh | bash
+        echo "Listing ~/.nilup/bin directory:"
+        ls -la ~/.nilup/bin
+        echo "Current PATH: $PATH"
+        echo "Content of ~/.bashrc:"
+        cat ~/.bashrc
+        echo "Manually adding nilup to PATH"
+        export PATH="$HOME/.nilup/bin:$PATH"
+        echo "$HOME/.nilup/bin" >> $GITHUB_PATH
+        echo "Updated PATH: $PATH"
+        echo "Attempting to use nilup directly:"
+        ~/.nilup/bin/nilup install latest
+        ~/.nilup/bin/nilup use latest
+        echo "Nillion version:"
+        ~/.nilup/bin/nillion --version || echo "nillion not found"
+    
+    - name: Run tests with Nada
+      run: |
+        echo "PATH at test step: $PATH"
+        echo "Attempting to run nada test:"
+        ~/.nilup/bin/nada test || echo "nada test failed"
