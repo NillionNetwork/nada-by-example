@@ -1,6 +1,6 @@
 # Deploying Streamlit Apps
 
-Deployed Streamlit apps live here in the streamlit_demo_apps folder.
+To deploy Streamlit apps, they need to be written and committed to a public Github repo.
 
 ## How to add a new Streamlit App
 
