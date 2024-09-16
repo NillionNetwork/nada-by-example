@@ -4,8 +4,8 @@ import os
 sys.path.insert(0, os.path.abspath(os.path.join(os.path.dirname(__file__), '..')))
 import streamlit_app  
 
-program_name = 'addition'
-program_test_name = 'addition_test'
+program_name = 'voting'
+program_test_name = 'voting_test'
 
 def main():
     current_dir = os.path.dirname(os.path.abspath(__file__))

@@ -10,11 +10,12 @@ Check out the addition app file example:
 
 `app_addition.py`
 
-### 2. Copy the compiled Nada program file from the target/ folder into the streamlit_demo_apps/compiled_nada_programs folder
+### 2. Copy the compiled Nada program files from the target/ folder into the streamlit_demo_apps/compiled_nada_programs folder
 
-Check out the compiled Nada program file for addition:
+Check out the compiled Nada program files for addition:
 
-`addition.nada.bin`
+nada binary `addition.nada.bin`
+nada json `addition.nada.json`
 
 ### 3. Update your app file with the corresponding program name and program test name
 

@@ -46,25 +46,33 @@ def get_program_code(program_name):
     else:
         return f"Error: Program file '{program_name}.py' not found in 'src' directory."
     
-def get_program_json(program_name):
+def get_program_json(program_name, local_path=None):
     """
     Retrieve the JSON representation of a compiled Nada program.
     
     Args:
     program_name (str): Name of the program.
+    local_path (str, optional): Custom path to look for the program JSON file. 
+                                If None, defaults to the 'target' directory.
     
     Returns:
     str: The program's JSON representation or an error message if the file is not found.
     """
-    program_file_path = os.path.join("target", f"{program_name}.nada.json")
+    if local_path:
+        program_file_path = local_path
+    else:
+        program_file_path = os.path.join("target", f"{program_name}.nada.json")
 
     if os.path.exists(program_file_path):
         with open(program_file_path, 'r') as file:
             program_code = file.read()
         return program_code
     else:
-        return f"Error: Program json '{program_name}.nada.json' not found in 'target' directory."
-
+        if local_path:
+            return f"Error: Program json '{program_name}.nada.json' not found in '{local_path}' directory."
+        else:
+            return f"Error: Program json '{program_name}.nada.json' not found in 'target' directory."
+        
 def parse_nada_json(json_data):
     """
     Parse the JSON representation of a Nada program to extract input and output information.
@@ -96,13 +104,14 @@ def parse_nada_json(json_data):
     
     return input_info, output_info
 
-def main(nada_test_file_name=None, compiled_nada_program_path=None):
+def main(nada_test_file_name=None, path_nada_bin=None, path_nada_json=None):
+    print(path_nada_json)
     """
     Main function to run the Streamlit app for Nada program demonstration.
     
     Args:
     nada_test_file_name (str, optional): Name of the test file.
-    compiled_nada_program_path (str, optional): Path to the compiled Nada program.
+    path_nada_bin (str, optional): Path to the compiled Nada program.
     """
     # pass test name in via the command line
     if nada_test_file_name is None:
@@ -125,7 +134,7 @@ def main(nada_test_file_name=None, compiled_nada_program_path=None):
 
     # Get the program code
     program_code = get_program_code(program_name)
-    program_json_data = get_program_json(program_name)
+    program_json_data = get_program_json(program_name, path_nada_json)
     input_info, output_info = parse_nada_json(program_json_data)
 
     # Display the program name and test name
@@ -201,7 +210,7 @@ def main(nada_test_file_name=None, compiled_nada_program_path=None):
             nilchain_private_key=st.secrets["nilchain_private_key"]
 
             # Call the async store_inputs_and_run_blind_computation function and wait for it to complete
-            result_message = asyncio.run(store_inputs_and_run_blind_computation(input_data, program_name, output_parties, nilchain_private_key, compiled_nada_program_path, cluster_id_from_streamlit_config, grpc_endpoint_from_streamlit_config, chain_id_from_streamlit_config, bootnodes, should_store_inputs))
+            result_message = asyncio.run(store_inputs_and_run_blind_computation(input_data, program_name, output_parties, nilchain_private_key, path_nada_bin, cluster_id_from_streamlit_config, grpc_endpoint_from_streamlit_config, chain_id_from_streamlit_config, bootnodes, should_store_inputs))
 
         st.divider()
 
