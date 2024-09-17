@@ -1,6 +1,6 @@
 # Deploying Streamlit Apps
 
-To deploy Streamlit apps, they need to be written and committed to a public Github repo.
+To deploy Streamlit apps, they need to be written and committed to a public GitHub repository.
 
 ## How to add a new Streamlit App
 
