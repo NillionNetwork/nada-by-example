@@ -37,7 +37,7 @@ streamlit run streamlit_demo_apps/app_[your_program_name].py`
 
 View the app in your browser to make sure everything works as expected.
 
-### 4. Commit your code to Github
+### 4. Commit your code to GitHub
 
 Add and commit your new streamlit app code to your forked Github repo. (Code must be connected to a remote, open source GitHub repository to deploy a Streamlit app.)
 
