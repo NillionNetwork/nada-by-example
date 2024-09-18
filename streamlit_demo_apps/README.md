@@ -27,7 +27,7 @@ python3 generate-streamlit-app.py
 - Select an existing program (from the src/ directory)
 - Select an existing yaml test file for your program (from the tests/ directory)
 
-This will generate a Streamlit app file: streamlit*demo_apps/app*[your_program_name].py. The script will run the Streamlit app locally with this command
+This will generate a Streamlit app file: streamlit_demo_apps/app_[your_program_name].py. The script will run the Streamlit app locally with this command
 
 ```
 streamlit run streamlit_demo_apps/app_[your_program_name].py`
