@@ -1,6 +1,6 @@
 # Deploying Streamlit Apps
 
-This guide will show you how to quickly spin up a Nillion Testnet connected, live Streamlit app from our template using the simple generate-streamlit-app script. Once your app is ready, you can easily deploy it by pushing it to a public GitHub repo. Just follow these steps to get started:
+Follow the steps to deploy a live Streamlit app for your Nada program and test file. The app will connect to the Nillion Testnet to store your Nada program, store secret inputs (or use computation time secrets), and run blind computation.
 
 ## How to add a new Streamlit App
 
