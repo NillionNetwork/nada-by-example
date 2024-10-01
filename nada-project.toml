@@ -243,3 +243,8 @@ prime_size = 128
 path = "src/shuffle_simple.py"
 name = "shuffle_simple"
 prime_size = 128
+
+[[programs]]
+path = "src/bubble_sort.py"
+name = "bubble_sort"
+prime_size = 128
