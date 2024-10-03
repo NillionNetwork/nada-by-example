@@ -1,0 +1,12 @@
+---
+program: price_is_right
+inputs:
+  Price:
+    SecretInteger: "5"
+  Player1:
+    SecretInteger: "2"
+  Player2:
+    SecretInteger: "4"
+expected_outputs:
+  winner:
+    SecretInteger: "2"
