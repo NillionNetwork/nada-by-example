@@ -1,0 +1,11 @@
+---
+program: auction
+inputs:
+  bid_0: 5
+  bid_1: 10 # note that this program does not handle ties properly
+  bid_2: 10 # in the case of a tie, the first party to place the tie bid wins
+  bid_3: 4
+  bid_4: 9
+expected_outputs:
+  highest_bid: 10
+  winning_index: 1

@@ -1,0 +1,11 @@
+---
+program: auction
+inputs:
+  bid_0: 10
+  bid_1: 2
+  bid_2: 3
+  bid_3: 11
+  bid_4: 9
+expected_outputs:
+  highest_bid: 11
+  winning_index: 3
