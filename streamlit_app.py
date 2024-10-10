@@ -104,6 +104,39 @@ def parse_nada_json(json_data):
     
     return input_info, output_info
 
+import streamlit as st
+
+def create_party_inputs(input_info, input_values):
+    party_names = sorted(set(info['party'] for info in input_info.values()))
+    updated_input_values = input_values.copy()
+
+    if len(party_names) > 1:
+        # Create two columns if there's more than one party
+        columns = st.columns(2)
+    else:
+        # Create a single column if there's only one party
+        columns = [st.columns(1)[0]]
+
+    # Distribute parties between the columns
+    for i, party_name in enumerate(party_names):
+        with columns[i % len(columns)]:
+            st.subheader(f"{party_name}'s Inputs")
+            for input_name, value in input_values.items():
+                if input_info[input_name]['party'] == party_name:
+                    input_type = input_info[input_name]['type']
+                    if input_type == 'SecretBoolean':
+                        updated_input_values[input_name] = st.checkbox(
+                            label=f"{input_type}: {input_name}",
+                            value=bool(value)
+                        )
+                    else:
+                        updated_input_values[input_name] = st.number_input(
+                            label=f"{input_type}: {input_name}",
+                            value=value
+                        )
+
+    return updated_input_values
+
 def main(nada_test_file_name=None, path_nada_bin=None, path_nada_json=None):
     # pass test name in via the command line
     if nada_test_file_name is None:
@@ -153,28 +186,11 @@ def main(nada_test_file_name=None, path_nada_bin=None, path_nada_json=None):
 
     # Display the program code
     st.subheader(f"{program_name}.py")
-    st.code(program_code, language='python')
+    with st.expander(f"Nada Program: {program_name}"):
+        st.code(program_code, language='python')
 
     # Display inputs grouped by party, alphabetized
-    updated_input_values = {}
-    # Get unique party names and sort them alphabetically
-    party_names = sorted(set(info['party'] for info in input_info.values()))
-
-    for party_name in party_names:
-        st.subheader(f"{party_name}'s Inputs")
-        for input_name, value in input_values.items():
-            if input_info[input_name]['party'] == party_name:
-                input_type = input_info[input_name]['type']
-                if input_type == 'SecretBoolean':
-                    updated_input_values[input_name] = st.checkbox(
-                        label=f"{input_type}: {input_name}",
-                        value=bool(value)
-                    )
-                else:
-                    updated_input_values[input_name] = st.number_input(
-                        label=f"{input_type}: {input_name}",
-                        value=value
-                    )
+    updated_input_values = create_party_inputs(input_info, input_values)
     
     output_parties = list(set(output['party'] for output in output_info.values()))
 
@@ -182,6 +198,7 @@ def main(nada_test_file_name=None, path_nada_bin=None, path_nada_json=None):
 
     # Button to store inputs with a loading screen
     if st.button('Run blind computation'):
+        st.divider()
         # Conditional spinner text
         if should_store_inputs:
             spinner_text = "Storing the Nada program, storing inputs, and running blind computation on the Nillion Network Testnet..."
@@ -202,8 +219,6 @@ def main(nada_test_file_name=None, path_nada_bin=None, path_nada_json=None):
 
             # Call the async store_inputs_and_run_blind_computation function and wait for it to complete
             result_message = asyncio.run(store_inputs_and_run_blind_computation(input_data, program_name, output_parties, nilchain_private_key, path_nada_bin, cluster_id_from_streamlit_config, grpc_endpoint_from_streamlit_config, chain_id_from_streamlit_config, bootnodes, should_store_inputs))
-
-        st.divider()
 
         st.subheader("Nada Program Result")
 
