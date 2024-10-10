@@ -1,15 +1,15 @@
 ---
 program: auction_can_tie
 inputs:
-  bid_0: 3
-  bid_1: 3
-  bid_2: 4
-  bid_3: 3
-  bid_4: 4
+  bid_0: 10
+  bid_1: 9
+  bid_2: 80
+  bid_3: 7
+  bid_4: 6
 expected_outputs:
   bidder_0_flag_highest_bid: 0
   bidder_1_flag_highest_bid: 0
   bidder_2_flag_highest_bid: 1
   bidder_3_flag_highest_bid: 0
-  bidder_4_flag_highest_bid: 1
-  highest_bid: 4
+  bidder_4_flag_highest_bid: 0
+  highest_bid: 80

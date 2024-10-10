@@ -120,7 +120,7 @@ def create_party_inputs(input_info, input_values):
     # Distribute parties between the columns
     for i, party_name in enumerate(party_names):
         with columns[i % len(columns)]:
-            st.subheader(f"{party_name}'s Inputs")
+            st.subheader(f"{party_name}'s inputs")
             for input_name, value in input_values.items():
                 if input_info[input_name]['party'] == party_name:
                     input_type = input_info[input_name]['type']
@@ -222,9 +222,10 @@ def main(nada_test_file_name=None, path_nada_bin=None, path_nada_json=None):
 
         st.subheader("Nada Program Result")
 
-        st.text('Output(s)')
+        # st.text('Output(s)')
+        st.success('Output(s)', icon="🖥️")
         st.caption(f"The Nada program returned one or more outputs to designated output parties - {output_parties}")
-        st.success(result_message['output'], icon="🖥️")
+        st.json(result_message['output'])
 
         st.text('Nilchain Nillion Address')
         st.caption(f"Blind computation ran on the Nillion PetNet and operations were paid for on the Nilchain Testnet. Check out the Nilchain transactions that paid for each PetNet operation (store program, store secrets, compute) on the [Nillion Testnet Explorer](https://testnet.nillion.explorers.guru/account/{result_message['nillion_address']})")
@@ -234,8 +235,12 @@ def main(nada_test_file_name=None, path_nada_bin=None, path_nada_json=None):
         st.caption('The Store IDs are the unique identifiers used to reference input values you stored in the Nillion Network on the PetNet.')
         st.code(result_message['store_ids'], language='json')
 
-        st.text('PetNet User ID')
-        st.caption(f"The User ID is derived from your PetNet user public/private key pair and serves as your public user identifier on the Nillion Network. The user key is randomized every time you run this demo, so the User ID is also randomized.")
+        st.text('User Key')
+        st.caption(f"The user key is a private key derived from a PetNet user public/private key pair. It is randomized every time you run this page for the sake of the demo, ensuring that the key is different for each session.")
+        st.code(result_message['user_key'], language='json')
+
+        st.text('User ID')
+        st.caption(f"The user id is derived from your PetNet user key and serves as your public user identifier on the Nillion Network. Since the user key is randomized with each run of the demo, the user id is also randomized accordingly.")
         st.code(result_message['user_id'], language='json')
 
         st.text('Program ID')

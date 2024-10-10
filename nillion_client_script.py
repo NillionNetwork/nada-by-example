@@ -182,6 +182,7 @@ async def store_inputs_and_run_blind_computation(
             blind_computation_results = compute_event.result.value
             return {
                 'user_id': user_id,
+                'user_key': userkey,
                 'program_id': program_id,
                 'store_ids': store_ids, 
                 'output': blind_computation_results,

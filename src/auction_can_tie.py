@@ -21,10 +21,10 @@ def nada_main():
 
     # Create a list of outputs for each bidder, indicating if their bid matches the highest bid
     # Each output is a flag (1 if the bid matches the highest bid, 0 otherwise), visible to the auctioneer
-    placed_highest_bid = [
-        Output((bids[i] == highest_bid).if_else(Integer(1), Integer(0)), f"bidder_{i}_placed_highest_bid", auctioneer)
+    flag_highest_bid = [
+        Output((bids[i] == highest_bid).if_else(Integer(1), Integer(0)), f"bidder_{i}_flag_highest_bid", auctioneer)
         for i in range(num_bidders)
     ]
 
-    # Return the highest bid and a list of flags indicating which bidders placed the highest bid
-    return [Output(highest_bid, "highest_bid", auctioneer)] + placed_highest_bid
+    # Return the highest bid and a list of flags indicating which bidders flag the highest bid
+    return [Output(highest_bid, "highest_bid", auctioneer)] + flag_highest_bid
