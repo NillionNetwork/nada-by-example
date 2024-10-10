@@ -186,7 +186,8 @@ def main(nada_test_file_name=None, path_nada_bin=None, path_nada_json=None):
 
     # Display the program code
     st.subheader(f"{program_name}.py")
-    st.code(program_code, language='python')
+    with st.expander(f"Nada Program: {program_name}"):
+        st.code(program_code, language='python')
 
     # Display inputs grouped by party, alphabetized
     updated_input_values = create_party_inputs(input_info, input_values)
