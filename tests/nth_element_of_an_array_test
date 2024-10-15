@@ -1,0 +1,11 @@
+---
+program: nth_largest
+inputs:
+  n: 3
+  num_0: 0
+  num_1: 2
+  num_2: 3
+  num_3: 1
+  num_4: 4
+expected_outputs:
+  nth_element: 3
