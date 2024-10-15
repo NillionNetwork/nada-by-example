@@ -25,6 +25,11 @@ name = "multiplication"
 prime_size = 128
 
 [[programs]]
+path = "src/nth_element_of_an_array.py"
+name = "nth_element_of_an_array"
+prime_size = 128
+
+[[programs]]
 path = "src/power.py"
 name = "power"
 prime_size = 128
