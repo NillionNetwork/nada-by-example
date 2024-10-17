@@ -1,0 +1,42 @@
+---
+program: matrix_scan
+inputs:
+  row_0_0:
+    SecretInteger: "1"
+  row_0_1:
+    SecretInteger: "2"
+  row_0_2:
+    SecretInteger: "3"
+  row_1_0:
+    SecretInteger: "2"
+  row_1_1:
+    SecretInteger: "1"
+  row_1_2:
+    SecretInteger: "3"
+  target_number:
+    SecretInteger: "3"
+expected_outputs:
+  value_excists_0_x:
+    SecretInteger: "-1"
+  value_excists_0_y:
+    SecretInteger: "-1"
+  value_excists_1_x:
+    SecretInteger: "-1"
+  value_excists_1_y:
+    SecretInteger: "-1"
+  value_excists_2_x:
+    SecretInteger: "0"
+  value_excists_2_y:
+    SecretInteger: "2"
+  value_excists_3_x:
+    SecretInteger: "-1"
+  value_excists_3_y:
+    SecretInteger: "-1"
+  value_excists_4_x:
+    SecretInteger: "-1"
+  value_excists_4_y:
+    SecretInteger: "-1"
+  value_excists_5_x:
+    SecretInteger: "1"
+  value_excists_5_y:
+    SecretInteger: "2"
