@@ -256,4 +256,5 @@ prime_size = 128
 
 [[programs]]
 path = "src/matrix_scan.py"
+name = "matrix_scan"
 prime_size = 128
