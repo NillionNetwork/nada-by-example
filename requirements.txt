@@ -5,6 +5,7 @@ nada-test
 # streamlit demo dependencies
 pyyaml
 streamlit
+questionary
 
 # nillion_client_script dependencies for streamlit demo
 py-nillion-client

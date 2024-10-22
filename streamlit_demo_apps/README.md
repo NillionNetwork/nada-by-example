@@ -1,49 +1,78 @@
 # Deploying Streamlit Apps
 
-Deployed Streamlit apps live here in the streamlit_demo_apps folder.
+Follow the steps to deploy a live Streamlit app for your Nada program. The app will connect to the Nillion Testnet to store your Nada program, store secret inputs (or use computation time secrets), and run blind computation.
 
 ## How to add a new Streamlit App
 
-### 0. Create a streamlit secrets file and add your nilchain private key within `.streamlit/secrets.toml`
+### 0. Fork this repo
+
+### 1. Create a streamlit secrets file
+
+Run this command to create a `.streamlit/secrets.toml` copied from the example.
 
 ```
 cp .streamlit/secrets.toml.example .streamlit/secrets.toml
 ```
 
-### 1. Create an app file in the streamlit_demo_apps folder
+Add your Nilchain private key to the .streamlit/secrets.toml file. The private key must be linked to a funded Nillion Testnet address that was created using a Google account (not a mnemonic). This allows you to retrieve the private key from Keplr. If you don’t have a Testnet wallet yet, you can learn how to create one here: https://docs.nillion.com/testnet-guides
 
-Check out the addition app file example:
+### 2. Run the script to generate a new streamlit app for your program
 
-`app_addition.py`
-
-### 2. Copy the compiled Nada program files from the target/ folder into the streamlit_demo_apps/compiled_nada_programs folder
-
-Check out the compiled Nada program files for addition:
-
-nada binary `addition.nada.bin`
-nada json `addition.nada.json`
-
-### 3. Update your app file with the corresponding program name and program test name
-
-Check out the addition app file example:
-
-`app_addition.py`
+From the root folder of this repo, run the generate-streamlit-app script:
 
 ```
-program_name = 'addition'
-program_test_name = 'addition_test'
+python3 generate-streamlit-app.py
+```
+
+### 3. Follow the prompts to
+
+- Select an existing program (from the src/ directory)
+- Select an existing yaml test file for your program (from the tests/ directory)
+
+This will generate a Streamlit app file: streamlit*demo_apps/app*[your_program_name].py. The script will run the Streamlit app locally with this command
+
+```
+streamlit run streamlit_demo_apps/app_[your_program_name].py`
 ```
 
 ### 4. Test your Streamlit app locally
 
-Make sure the apps will work when deployed by testing this command from the root folder.
+View the app in your browser to make sure everything works as expected.
+
+### 5. Commit your code to GitHub
+
+Add and commit your new streamlit app code to your forked Github repo. (Code must be connected to a remote, open source GitHub repository to deploy a Streamlit app.)
 
 ```
-streamlit run streamlit_demo_apps/[app_file_name].py
+git add .
+git commit -m "my new streamlit nillion app"
+git push origin main
 ```
 
-For example to make sure the addition app will work when deployed, run
+Once you've committed the open source code, you can click the "deploy" button within your local streamlit app. Sign in with Github and select the "Deploy Now" on Streamlit Community Cloud option to deploy the app for free.
+
+  <img width="1000" alt="Streamlit Community Cloud" src="https://github.com/user-attachments/assets/74a70b4e-506c-41df-8d59-f949871c9a4e">
+
+### 6. Deploy your app from Streamlit.io
+
+When you click "Deploy Now" from your local app, you'll be taken to streamlit.io and asked to log in with Github to create a new Streamlit app. Set the main file path to your new app `streamlit_demo_apps/app_[your_program_name].py`
+
+  <img width="1000" alt="streamlit settings" src="https://github.com/user-attachments/assets/e3821aa4-44b6-4f16-8400-97e531dfef23">
+
+#### Add your Nilchain Private Key using Advanced Settings > Secrets
+
+Go to "Advanced settings" and in Secrets, copy in the contents of your .streamlit/secrets.toml file. At a minimum, make sure to add your secret private key:
 
 ```
-streamlit run streamlit_demo_apps/app_addition.py
+nilchain_private_key = "YOUR_FUNDED_PRIVATE_KEY"
 ```
+
+  <img width="1000" alt="advanced settings" src="https://github.com/user-attachments/assets/6b48b225-60b7-41bd-8591-c04419131bf8">
+
+Save and click "Deploy" to deploy your testnet-connected Streamlit app.
+
+### 7. Access Your Live Streamlit App
+
+Once deployed, you’ll get a live link to your Nillion Testnet Streamlit app!
+
+Example live Streamlit App: https://stephs-nada-multiplication-app.streamlit.app/
