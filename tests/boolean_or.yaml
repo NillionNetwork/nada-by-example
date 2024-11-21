@@ -1,0 +1,8 @@
+---
+program: boolean_or
+inputs:
+  A_neg: 3
+  B_neg: 3
+  C: 3
+expected_outputs:
+  my_output: true

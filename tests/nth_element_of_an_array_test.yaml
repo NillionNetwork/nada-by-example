@@ -1,5 +1,5 @@
 ---
-program: nth_largest
+program: nth_element_of_an_array
 inputs:
   n: 3
   num_0: 0
