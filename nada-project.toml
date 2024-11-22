@@ -263,3 +263,8 @@ prime_size = 128
 path = "src/auction_can_tie.py"
 name = "auction_can_tie"
 prime_size = 128
+
+[[programs]]
+name = "sum_list"
+path = "src/sum_list.py"
+prime_size = 128
