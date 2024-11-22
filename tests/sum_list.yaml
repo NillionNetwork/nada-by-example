@@ -1,0 +1,8 @@
+---
+program: sum_list
+inputs:
+  secret1: 3
+  secret2: 3
+  secret3: 3
+expected_outputs:
+  sum_list: 9
