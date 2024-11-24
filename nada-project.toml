@@ -263,3 +263,8 @@ prime_size = 128
 path = "src/auction_can_tie.py"
 name = "auction_can_tie"
 prime_size = 128
+
+[[programs]]
+path = "src/oblivious_update.py"
+name = "oblivious_update"
+prime_size = 128
